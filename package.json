@@ -4,7 +4,8 @@
   "description": "CS 290 Final Project",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "handlebars": "^4.7.7"
   },
   "devDependencies": {},
   "scripts": {
