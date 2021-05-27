@@ -1,6 +1,4 @@
-/*
-
-*/
+//Removes .hidden class from all elements
 function unHideModals()
 {
     //Unhide modals by removing 'hidden' class
@@ -10,9 +8,8 @@ function unHideModals()
         modals[i].classList.remove('hidden')
     }
 }
-/*
 
-*/
+//Adds .hidden class back to modals
 function hideModals()
 {
     //Hide the models by adding 'hidden' class
@@ -22,10 +19,9 @@ function hideModals()
     modalBack.classList.add('hidden')
     modalQuestion.classList.add('hidden')
 }
-/*
 
-*/
-function cancelQuestion()
+//Hides modals and clears input values
+function clearAndHideQuestion()
 {
     hideModals()
     let textInput = document.getElementById('question-text-input')
@@ -34,9 +30,7 @@ function cancelQuestion()
     nameInput.value = ''
 }
 
-/*
-
-*/
+//Sends a POST request to the server-side w/question name, text, and Room name
 function createPostRequest(textValue, nameValue)
 {
     let request = new XMLHttpRequest()
@@ -61,9 +55,8 @@ function createPostRequest(textValue, nameValue)
     })
     request.send(requestBody)
 }
-/*
 
-*/
+//Verify input and send a POST request
 function handlePost()
 {
     let textValue = document.getElementById('question-text-input').value
@@ -72,7 +65,7 @@ function handlePost()
     if (textValue && nameValue) 
     {
         createPostRequest(textValue, nameValue)
-        hideModals()
+        clearAndHideQuestion()
     }
     else alert("Missing question or name input!")
 
@@ -81,11 +74,11 @@ function handlePost()
 let creatQButton = document.getElementById('create-question-button')
 creatQButton.addEventListener('click', unHideModals)
 
-let closeButton = document.getElementById('question-close')
-closeButton.addEventListener('click', cancelQuestion)
-
 let cancelButton = document.getElementById('question-cancel')
-cancelButton.addEventListener('click', cancelQuestion)
+cancelButton.addEventListener('click', clearAndHideQuestion)
+
+let modalBack = document.getElementById("create-backdrop")
+modalBack.addEventListener('click', clearAndHideQuestion)
 
 let postButton = document.getElementById('question-post')
 postButton.addEventListener('click', handlePost)
