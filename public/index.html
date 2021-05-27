@@ -2,9 +2,34 @@
 <html>
    <head>
       <title>Test Page</title>
+      <script src="js/index.js" defer></script>
+      <link rel="stylesheet" href="css/style.css">
    </head>
    <body>
-      <p>Hello world!</p>
+      <button type="button" id="create-question-button">+</button>
+      <div id="create-backdrop" class="hidden"></div>
+      <div id="create-question" class="hidden">
+         <div class="create-question-header">
+            <h3>Post a Question</h3>
+            <button type="button" id="question-close">&times;</button>
+         </div>
+
+         <div class="create-question-body">
+            <div class="create-question-input">
+                  <p id="question-text-label">Question</p>
+                  <textarea id="question-text-input" placeholder="Your question"></textarea>
+            </div>
+            <div class="create-question-input">
+                  <p id="question-name-label">Name</p>
+                  <input type="text" id="question-name-input" placeholder="Your full name">
+            </div>
+         </div>
+
+         <div class="create-question-footer">
+            <button type="button" id="question-cancel">Cancel</button>
+            <button type="button" id="question-post">Post</button>
+         </div>
+      </div>
    </body>
 </html>
 
