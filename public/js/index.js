@@ -68,7 +68,7 @@ function handlePost()
 
 }
 
-let creatQButton = document.getElementById('create-question-button')
+let creatQButton = document.getElementById('add-question')
 creatQButton.addEventListener('click', unHideQuestionModal)
 
 let cancelButton = document.getElementById('question-cancel')
