@@ -93,7 +93,7 @@ a:hover {
 /* make different size fonts prettier!*/
 .title-container {
   margin: 10px;
-  padding: 20px;
+  padding: 5px;
   border: 1px solid #ccc;
   background-color: #fff;
   text-align: left;
@@ -124,9 +124,9 @@ a:hover {
 
 .post {
   min-width: 256px;
-  display: inline-block;
-  margin: 2px;
-  padding: 2px;
+  display: inline;
+  margin: 5px;
+  padding: 20px;
   border: 1px solid #dadada;
   border-radius: 2px;
   background-color: #fff;
@@ -137,33 +137,38 @@ a:hover {
 .announcement-content .question-content {
   margin: 10px;
 }
+
 .content {
   text-align: left;
 }
 
 
 .author {
-
   text-align: right;
   font-weight: bold;
 }
-/*
-#create-twit-button {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  height: 60px;
-  width: 60px;
-  border: none;
-  border-radius: 30px;
-  font-size: 30px;
-  background-color: #ff1010;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
-}
-*/
 
+#add-announcement {
+  position: static;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  border: 0px solid red;
+  background-color: #d73f09;
+  font-size: 30px;
+  color: white;
+  padding: 15px;
+}
+
+#add-question {
+  position: static;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  border: 0px solid red;
+  background-color: #d73f09;
+  font-size: 30px;
+  color: white;
+  padding: 15px;
+}
 
 
 
@@ -174,110 +179,6 @@ a:hover {
 .hidden {
     display: None;
 }
-/*
-#create-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: #000000d9;
-}
-*/
-/*
-#create-question {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1010;
-
-    width: auto;
-    max-width: 600px;
-    min-width: 350px;
-    min-height: 300px;
-    height: fit-content;
-
-    margin: 40px auto;
-    background-color: #fff;
-}
-
-.create-question-header{
-    position: relative;
-    text-align: center;
-}
-
-.create-question-body {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-}
-
-
-.create-question-input {
-}
-
-#question-text-input {
-
-    width: 100%;
-}
-
-#question-name-input {
-    width: 100%;
-}
-*/
-
-.create-question-input input,
-.create-question-input textarea {
-  padding: 8px 0;
-  font-size: 20px;
-  border: 2px solid #eb4d8a;
-  border-radius: 1px;
-  margin-bottom: 2%;
-}
-
-.create-question-input textarea {
-    resize: none;
-}
-
-.create-question-footer {
-    position: relative;
-    width: 80%;
-    margin: 0 auto;
-}
-
-#question-cancel, #question-post{
-    color: white;
-    background-color: #eb4d8a;
-
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-
-    cursor: pointer;
-}
-
-.text {
-    color: #eb4d8a;
-    position: absolute;
-    background-color: white;
-    padding: 0 5px;
-    top: 32px;
-    left: 75px;
-}
-
-
-.author {
-    top: 112px;
-    left: 75px;
-}
-
 
 
 
