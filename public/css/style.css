@@ -1,106 +1,308 @@
+/* general settings for the entire page */
+body {
+  font-family: 'Helvetica', sans-serif;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+/* header bar is OSU orange */
+header {
+  background-color: #d73f09;
+  color: #fff;
+}
+
+/* clickable elements */
+a {
+  text-decoration: none;
+  color: #03a9f4;
+}
+
+a:hover {
+  color: #0c719e;
+}
+
+/* "OSU Lab Assistant" */
+.site-title {
+  margin: 0;
+  padding: 20px;
+}
+
+/* contains "Home" and "Call for TA" options*/
+.navbar {
+  font-size: 22px;
+  background-color: #fff;
+}
+
+/* not sure what's going on here but it looks good*/
+.navlist {
+  margin: 0;
+}
+
+/* same */
+.navitem {
+  display: inline-block;
+}
+
+.navitem:hover {
+  background-color: rgba(231, 132, 119, 0.18);
+}
+
+.navitem a {
+  display: inline-block;
+  color: #454545;
+  padding: 10px 20px;
+}
+
+/* what is this? */
+/*
+.navitem.right {
+  float: right;
+}
+*/
+
+/* container for the contents of the entire page */
+.home-page {
+  /*display: flex;*/
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+/* container for posts*/
+/* there are two types: anouncement and question*/
+.post-container {
+  display: flex;
+  position: relative;
+  /*flex: 1 32%;*/
+
+  padding: 10px;
+  text-align: left;
+  margin: 5px;
+  flex-wrap: wrap;
+}
+/*
+.post-container {
+  margin: 50px 10%;
+  display: flex;
+  flex-wrap: wrap;
+}
+*/
+
+
+
+/* lab number and pin*/
+/* make different size fonts prettier!*/
+.title-container {
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  text-align: left;
+}
+
+.title-container h3 {
+  margin: 10px 0;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.title-container h4 {
+  margin: 10px 0;
+  font-size: 25px;
+  font-weight: 200;
+}
+
+/* actual individual post */
+/*
+.post {
+  margin: 5px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 20px;
+}
+*/
+
+.post {
+  min-width: 256px;
+  display: inline;
+  margin: 5px;
+  padding: 20px;
+  border: 1px solid #dadada;
+  border-radius: 2px;
+  background-color: #fff;
+  position: relative;
+}
+
+
+.announcement-content .question-content {
+  margin: 10px;
+}
+
+.content {
+  text-align: left;
+}
+
+
+.author {
+  text-align: right;
+  font-weight: bold;
+}
+
+#add-announcement {
+  position: static;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  border: 0px solid red;
+  background-color: #d73f09;
+  font-size: 30px;
+  color: white;
+  padding: 15px;
+}
+
+#add-question {
+  position: static;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  border: 0px solid red;
+  background-color: #d73f09;
+  font-size: 30px;
+  color: white;
+  padding: 15px;
+}
+
+
+
+
+
+
+
 .hidden {
     display: None;
 }
 
-#create-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: #000000d9;
-}
-#create-question {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1010;
-    
-    width: auto;
-    max-width: 600px;
-    min-width: 350px;
-    min-height: 300px;
-    height: fit-content;
 
-    margin: 40px auto;
-    background-color: #fff;
+
+
+
+
+
+
+
+
+/*
+ * Modal stuff
+ */
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
-.create-question-header{
-    position: relative;
-    text-align: center;
+#add-photo-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
 }
 
-.create-question-body {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+.hidden {
+  display: none;
 }
 
-
-.create-question-input {
-}
-
-#question-text-input {
-
-    width: 100%;
-}
-
-#question-name-input {
-    width: 100%;
-}
-
-
-.create-question-input input,
-.create-question-input textarea {
-  padding: 8px 0;
+.action-button {
   font-size: 20px;
-  border: 2px solid #eb4d8a;
-  border-radius: 1px;
-  margin-bottom: 2%;
+  color: white;
+  padding: 10px;
+  background-color: #000;
+  border: 1px solid #ababab;
+  border-radius: 5px;
+  font-weight: lighter;
+  cursor: pointer;
 }
 
-.create-question-input textarea {
-    resize: none;
+.action-button:hover {
+  background-color: #e78477;
+  border-color: #333;
 }
 
-.create-question-footer {
-    position: relative;
-    width: 80%;
-    margin: 0 auto;
+.modal-dialog {
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
 }
 
-#question-cancel, #question-post{
-    color: white;
-    background-color: #eb4d8a;
-
-    padding: 10px 20px;
-    border: none; 
-    border-radius: 3px;
-
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-
-    cursor: pointer;
+.modal-header {
+  position: relative;
+  padding: 10px 20px;
 }
 
-#question-text-label, #question-name-label {
-    color: #eb4d8a;
-    position: absolute;
-    background-color: white;
-    padding: 0 5px;
+.modal-header h3 {
+  margin: 0;
+  font-size: 28px;
 }
 
-#question-text-label {
-    top: 32px;
-    left: 75px;
+#modal-close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 }
 
-#question-name-label {
-    top: 112px;
-    left: 75px;
+.modal-body {
+  padding: 20px;
+}
+
+.photo-input-element {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.photo-input-element > label {
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+}
+
+.photo-input-element input {
+  flex: 6 200px;
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #aaa;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px 20px 10px;
+}
+
+#modal-cancel,
+#modal-accept {
+  margin-right: 20px;
+}
+
+#modal-cancel {
+  color: #333;
+  background-color: #fff;
+}
+
+#modal-cancel:hover {
+  background-color: #eee;
 }
