@@ -45,6 +45,24 @@ app.post('/question/add', function(req, res, next) {
    }
 })
 
+// Temporary thing for testing
+app.get('/questions', function(req, res, next) {
+   let questionsCursor = db.collection('questions').find({
+      roomName: 'room1'
+   });
+
+   let questions = questionsCursor.toArray().then(function(questions) {
+      res.status(200).send(JSON.stringify(questions));
+   });
+});
+
+//Handle POSTS to add announcements
+//{announcementText: textValue, announcementAuthor: authorValue, taPassword: passwordValue, roomName: 'room1'}
+app.post('/announcements/add', function(req, res, next) {
+   // TODO: make this actually work
+   res.status(403).send('Invalid password!')
+})
+
 let port = process.env.PORT || 3000;
 
 //Ensure DB connection before starting server
