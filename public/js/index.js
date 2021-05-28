@@ -28,25 +28,29 @@ function clearAndHideQuestion()
 }
 
 //Sends a POST request to the server-side w/question name, text, and Room name
-function createPostRequest(textValue, nameValue)
+function createPostRequest(jsonObj, route, callback)
 {
     let request = new XMLHttpRequest()
-    request.open('POST', '/question/add')
+    request.open('POST', route)
     request.setRequestHeader('Content-Type','application/json')
 
-    //REPLACE ROOM w/NAME
-    questionObj = {questionText: textValue, questionName: nameValue, roomName: "room1"}
-    requestBody = JSON.stringify(questionObj)
+    requestBody = JSON.stringify(jsonObj)
 
     request.addEventListener('load', function(event) {
-        if(event.target.status !== 200) 
+        // Just in case a student tries to post an announcement with an invalid password
+        if (event.target.status === 403) {
+            let msg = event.target.response
+            alert("Access denied: " + msg)
+        }
+        else if(event.target.status !== 200) 
         {
             let msg = event.target.response
-            alert("Error storing request in database: ", msg)
+            alert("Error storing request in database: " + msg)
         }
         else
         {
             console.log("Uploaded question!")
+            callback();
             //UPDATE UI
         }
     })
@@ -54,15 +58,17 @@ function createPostRequest(textValue, nameValue)
 }
 
 //Verify input and send a POST request
-function handlePost()
+function handlePostQuestion()
 {
     let textValue = document.getElementById('question-text-input').value
     let nameValue = document.getElementById('question-name-input').value
 
     if (textValue && nameValue) 
     {
-        createPostRequest(textValue, nameValue)
-        clearAndHideQuestion()
+        //REPLACE ROOM w/NAME
+        createPostRequest({questionText: textValue, questionName: nameValue, roomName: "room1"}, "/question/add", function (){
+            clearAndHideQuestion()
+        })
     }
     else alert("Missing question or name input!")
 
@@ -78,7 +84,7 @@ let modalBack = document.getElementById("create-backdrop")
 modalBack.addEventListener('click', clearAndHideQuestion)
 
 let postButton = document.getElementById('question-post')
-postButton.addEventListener('click', handlePost)
+postButton.addEventListener('click', handlePostQuestion)
 
 
 // Announcement modal things
@@ -102,14 +108,16 @@ function postAnnouncement() {
     // TODO add authorization check
     let textValue = document.getElementById('announcement-text-input').value;
     let authorValue = document.getElementById('announcement-author-input').value;
+    let passwordValue = document.getElementById('announcement-author-input').value;
 
-    if (textValue && authorValue) 
+    if (textValue && authorValue && passwordValue) 
     {
-        // TODO: Ask Garrett about refactoring this, nothing major
-        //createPostRequest(textValue, authorValue);
-        clearAndHideAnnouncement();
+        // TODO: room name
+        createPostRequest({announcementText: textValue, announcementAuthor: authorValue, taPassword: passwordValue, roomName: 'room1'}, '/announcements/add', function() {
+            clearAndHideAnnouncement();
+        });
     }
-    else alert("Missing announcement or author input!");
+    else alert("Missing announcement, author, or password input!");
 }
 
 let createAnnouncementButton = document.getElementById('add-announcement');
