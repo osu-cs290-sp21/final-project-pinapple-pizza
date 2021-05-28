@@ -1,12 +1,9 @@
 //Removes .hidden class from all elements
-function unHideModals()
+function unHideQuestionModal()
 {
-    //Unhide modals by removing 'hidden' class
-    let modals = document.querySelectorAll('.hidden')
-    for(var i=0; i < modals.length; i++)
-    {
-        modals[i].classList.remove('hidden')
-    }
+    //Unhide modal by removing 'hidden' class
+    document.getElementById('create-backdrop').classList.remove('hidden');
+    document.getElementById('create-question').classList.remove('hidden');
 }
 
 //Adds .hidden class back to modals
@@ -72,7 +69,7 @@ function handlePost()
 }
 
 let creatQButton = document.getElementById('create-question-button')
-creatQButton.addEventListener('click', unHideModals)
+creatQButton.addEventListener('click', unHideQuestionModal)
 
 let cancelButton = document.getElementById('question-cancel')
 cancelButton.addEventListener('click', clearAndHideQuestion)
@@ -82,3 +79,47 @@ modalBack.addEventListener('click', clearAndHideQuestion)
 
 let postButton = document.getElementById('question-post')
 postButton.addEventListener('click', handlePost)
+
+
+// Announcement modal things
+
+function unHideAnnouncementModal() {
+    //Unhide modal by removing 'hidden' class
+    document.getElementById('create-announcement-backdrop').classList.remove('hidden');
+    document.getElementById('create-announcement').classList.remove('hidden');
+}
+
+function clearAndHideAnnouncement() {
+    document.getElementById('announcement-text-input').value = '';
+    document.getElementById('announcement-author-input').value = '';
+    document.getElementById('announcement-password-input').value = '';
+
+    document.getElementById('create-announcement-backdrop').classList.add('hidden');
+    document.getElementById('create-announcement').classList.add('hidden');
+}
+
+function postAnnouncement() {
+    // TODO add authorization check
+    let textValue = document.getElementById('announcement-text-input').value;
+    let authorValue = document.getElementById('announcement-author-input').value;
+
+    if (textValue && authorValue) 
+    {
+        // TODO: Ask Garrett about refactoring this, nothing major
+        //createPostRequest(textValue, authorValue);
+        clearAndHideAnnouncement();
+    }
+    else alert("Missing announcement or author input!");
+}
+
+let createAnnouncementButton = document.getElementById('add-announcement');
+createAnnouncementButton.addEventListener('click', unHideAnnouncementModal);
+
+let closeAnnouncementButton = document.querySelector('.announcement-modal-close-button');
+closeAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);
+
+let cancelAnnouncementButton = document.querySelector('.announcement-modal-cancel-button');
+cancelAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);
+
+let postAnnouncementButton = document.querySelector('.announcement-modal-accept-button');
+postAnnouncementButton.addEventListener('click', postAnnouncement);
