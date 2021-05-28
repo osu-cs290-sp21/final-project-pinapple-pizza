@@ -13,7 +13,7 @@ app.set('view engine', 'handlebars');
 let db
 const uri = process.env.DB_HOST+process.env.DB_USER+":"+process.env.DB_PASS
             +process.env.DB_SERVER+process.env.DB_NAME+process.env.DB_PARAMS
-//const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 //Parse incoming data as JSON
 app.use(bodyParser.json())
@@ -47,8 +47,8 @@ app.post('/question/add', function(req, res, next) {
 
 let port = process.env.PORT || 3000;
 
-/*
 //Ensure DB connection before starting server
+
 client.connect(function(err) {
    db = client.db(process.env.DB_NAME)
    if (err)
@@ -59,7 +59,3 @@ client.connect(function(err) {
       console.log('Server is listening on port ' + port);
    });
 })
-*/
-app.listen(port, function() {
-   console.log('Server is listening on port ' + port);
-});
