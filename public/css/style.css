@@ -121,7 +121,9 @@ a:hover {
   font-size: 20px;
 }
 */
-
+.section-label-title {
+  display: inline-block;
+}
 .post {
   min-width: 256px;
   display: inline;
@@ -154,9 +156,9 @@ a:hover {
   border-radius: 100%;
   border: 0px solid red;
   background-color: #d73f09;
-  font-size: 30px;
+  font-size: 10px;
   color: white;
-  padding: 15px;
+  padding: 10px;
 }
 
 #add-question {
@@ -165,13 +167,13 @@ a:hover {
   border-radius: 100%;
   border: 0px solid red;
   background-color: #d73f09;
-  font-size: 30px;
+  font-size: 10px;
   color: white;
-  padding: 15px;
+  padding: 10px;
 }
 
 #add-question:hover, #add-announcement:hover {
-    font-size: 35px;
+    font-size: 15px;
     cursor: pointer;
 }
 
