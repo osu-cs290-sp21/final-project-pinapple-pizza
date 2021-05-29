@@ -68,6 +68,11 @@ function handlePostQuestion()
         //REPLACE ROOM w/NAME
         createPostRequest({questionText: textValue, questionName: nameValue, roomName: "room1"}, "/question/add", function (){
             clearAndHideQuestion()
+            
+            //Update UI
+            questionHTML = Handlebars.templates.question({questionText: textValue, questionName: nameValue})
+            questionContainer = document.querySelector('.questions .post-container')
+            questionContainer.insertAdjacentHTML('beforeend', questionHTML)
         })
     }
     else alert("Missing question or name input!")
