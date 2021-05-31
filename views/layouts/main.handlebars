@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>OSU Lab Assistant</title>
+      <!-- TODO: Move this to css folder once we figure things out -->
+      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
+      <script src="/js/questionTemplate.js"></script>
+      <script src="/js/index.js" defer></script>
+   </head>
+
+
+   <body>
+     {{> siteHeader}}
+     {{> siteNavbar}}
+
+     {{{body}}}
+
+   </body>
+</html>
