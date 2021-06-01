@@ -76,9 +76,38 @@ function room_exists(room) {
 }
 
 app.get('/rooms/:roomID/queue', function(req, res, next) {
-   // TODO: make this work
+   // TODO: Get people from db
+   // Temporary solution: hard coded people
+   context = {
+      people: [
+         {
+            position: "1",
+            name: "Bob",
+            roomNumber: "1",
+            reqType: "Question"
+         },
+         {
+            position: "2",
+            name: "Sally",
+            roomNumber: "26",
+            reqType: "Checkoff"
+         },
+         {
+            position: "3",
+            name: "Joey",
+            roomNumber: "2",
+            reqType: "Question"
+         }
+      ],
+      roomID: req.params.roomID,
+      roomName: "Super cool lab room thingy"
+   };
+
+   res.status(200).render('queue', context);
+
+   /*
    // Make sure that the request is valid and the twit exists
-   if (room_exists(req.params.roomID) /*TODO: implement this function lol*/) {
+   if (room_exists(req.params.roomID)) { // TODO: implement this function lol
       let context = {
          roomID: req.params.roomID
       };
@@ -87,6 +116,7 @@ app.get('/rooms/:roomID/queue', function(req, res, next) {
    else {
       next();
    }
+   */
 });
 
 // 404 page
