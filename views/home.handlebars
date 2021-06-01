@@ -12,7 +12,9 @@
         </div>
 
         <main class="post-container">
-
+            {{#each announcementArray}}
+            {{> question}}
+            {{/each}}
             <article class="post">
                 <div class="announcement-content">
                     <p class="content">
@@ -47,6 +49,9 @@
         </div>
 
         <main class="post-container">
+            {{#each questionsArray}}
+            {{> question}}
+            {{/each}}
             <article class="post">
                 <div class="question-content">
                     <p class="content">

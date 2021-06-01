@@ -18,8 +18,16 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 //Parse incoming data as JSON
 app.use(bodyParser.json())
 
+async function renderQuestionsAnnouncements(req, res, next) {
+   let questions = db.collection('questions').find({roomName: "room1"}).toArray()
+   let announcements = db.collection('announcements').find({roomName: "room1"}).toArray()
+
+   res.status(200).render('home', {
+      announcementArray: await announcements, questionsArray: await questions});
+}
 app.get('/', function(req, res, next) {
-   res.status(200).render('home');
+   //TODO: implement roomName, callback, and error handling
+   renderQuestionsAnnouncements(req, res, next)
 });
 
 app.use(express.static('public'));
@@ -72,7 +80,7 @@ app.get('/rooms/:roomID/queue', function(req, res, next) {
    // Make sure that the request is valid and the twit exists
    if (room_exists(req.params.roomID) /*TODO: implement this function lol*/) {
       let context = {
-         roomID = req.params.roomID
+         roomID: req.params.roomID
       };
       res.status(200).render('queue', context);
    }
