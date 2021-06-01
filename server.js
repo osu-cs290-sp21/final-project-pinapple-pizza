@@ -63,6 +63,31 @@ app.post('/announcements/add', function(req, res, next) {
    res.status(403).send('Invalid password!')
 })
 
+function room_exists(room) {
+   return true;
+}
+
+app.get('/rooms/:roomID/queue', function(req, res, next) {
+   // TODO: make this work
+   // Make sure that the request is valid and the twit exists
+   if (room_exists(req.params.roomID) /*TODO: implement this function lol*/) {
+      let context = {
+         roomID = req.params.roomID
+      };
+      res.status(200).render('queue', context);
+   }
+   else {
+      next();
+   }
+});
+
+// 404 page
+app.get('*', function(req, res, next) {
+   // TODO: change this to an actual 404 page
+   console.log(req.url);
+   res.status(404).send("404");
+});
+
 let port = process.env.PORT || 3000;
 
 //Ensure DB connection before starting server
