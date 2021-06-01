@@ -12,7 +12,9 @@
         </div>
 
         <main class="post-container">
-
+            {{#each announcementArray}}
+            {{> question}}
+            {{/each}}
             <article class="post">
                 <div class="announcement-content">
                     <p class="content">
@@ -47,28 +49,9 @@
         </div>
 
         <main class="post-container">
-            <article class="post">
-                <div class="question-content">
-                    <p class="content">
-                        Cats?
-                    </p>
-                    <p class="author">
-                        Mel
-                    </p>
-                </div>
-            </article>
-
-            <article class="post">
-                <div class="question-content">
-                    <p class="content">
-                        Cats?
-                    </p>
-                    <p class="author">
-                        Mel
-                    </p>
-                </div>
-            </article>
-
+            {{#each questionsArray}}
+            {{> question}}
+            {{/each}}
             </div>
     </section>
 </main>

@@ -70,7 +70,7 @@ function handlePostQuestion()
             clearAndHideQuestion()
             
             //Update UI
-            questionHTML = Handlebars.templates.question({questionText: textValue, questionName: nameValue})
+            questionHTML = Handlebars.templates.question({text: textValue, name: nameValue})
             questionContainer = document.querySelector('.questions .post-container')
             questionContainer.insertAdjacentHTML('beforeend', questionHTML)
         })
