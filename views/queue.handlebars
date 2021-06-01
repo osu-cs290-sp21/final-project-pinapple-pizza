@@ -1,0 +1,18 @@
+<main class="queue-page">
+    <table class="queue-list">
+        <th>
+            <td>Position in Queue</td>
+            <td>Name</td>
+            <td>Breakout Room Number/td>
+            <td>Request Type</td>
+        </th>
+        {{#each person}}
+            <tr>
+                <td>{{position}}</td>
+                <td>{{name}}</td>
+                <td>{{roomNumber}}</td>
+                <td>{{reqType}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</main>
