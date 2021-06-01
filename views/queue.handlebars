@@ -1,12 +1,15 @@
 <main class="queue-page">
+    <h1>Queue</h1>
+    <h3>Room ID: {{roomID}}</h3>
+    <h3>Room Name: {{roomName}}</h3>
     <table class="queue-list">
-        <th>
-            <td>Position in Queue</td>
-            <td>Name</td>
-            <td>Breakout Room Number/td>
-            <td>Request Type</td>
-        </th>
-        {{#each person}}
+        <tr>
+            <th>Position in Queue</th>
+            <th>Name</th>
+            <th>Breakout Room Number</th>
+            <th>Request Type</th>
+        </tr>
+        {{#each people}}
             <tr>
                 <td>{{position}}</td>
                 <td>{{name}}</td>
