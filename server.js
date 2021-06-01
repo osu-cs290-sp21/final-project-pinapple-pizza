@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser')
 const express = require('express');
 require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient
@@ -16,7 +15,7 @@ const uri = process.env.DB_HOST+process.env.DB_USER+":"+process.env.DB_PASS
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 //Parse incoming data as JSON
-app.use(bodyParser.json())
+app.use(express.json())
 
 async function renderQuestionsAnnouncements(req, res, next) {
    let questions = db.collection('questions').find({roomName: "room1"}).toArray()
