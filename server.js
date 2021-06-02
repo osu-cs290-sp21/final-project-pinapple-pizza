@@ -70,9 +70,51 @@ app.post('/announcements/add', function(req, res, next) {
    res.status(403).send('Invalid password!')
 })
 
-function room_exists(room) {
-   return true;
+function roomExists(room) {
+   return true
 }
+
+//Handle POSTS to create rooms
+app.post('/rooms/create', function(req, res, next) {
+   if(req.body && req.body.roomID && req.body.roomName)
+   {
+      let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, people: []} 
+      db.collection("rooms").findOne({roomID: req.body.roomID})
+      .then(function(result) {
+         if (!result) {
+            //Add to DB
+            db.collection("rooms").insertOne(roomObj).then(function(){
+               res.status(200).send("Successfully created room!")
+            })
+         } else {
+            res.status(400).send("Error. Room already exists!")
+         }
+      })
+   }
+   else
+   {
+      res.status(400).send("Request does not contain the correct JSON!")
+   }
+})
+
+//Update queue by adding person
+app.put('/:roomID/queue/add', function(req, res, next) {
+   if(req.body && req.body.position && req.body.name && 
+      req.body.roomNumber && req.body.reqType)
+   {
+      let personObj = {position: req.body.position, name: req.body.name, 
+         roomNumber: req.body.roomNumber, reqType: req.body.reqType} 
+      
+      //Add to DB
+      db.collection("rooms").updateOne({roomID: req.params.roomID}, {$push: {people: personObj}}).then(function() {
+         res.status(200).send("Successfully added to the queue!")
+      })
+   }
+   else
+   {
+      res.status(400).send("Request does not contain the correct JSON!")
+   }
+})
 
 app.get('/rooms/:roomID/queue', function(req, res, next) {
    // TODO: Get people from db
@@ -106,7 +148,7 @@ app.get('/rooms/:roomID/queue', function(req, res, next) {
 
    /*
    // Make sure that the request is valid and the twit exists
-   if (room_exists(req.params.roomID)) { // TODO: implement this function lol
+   if (roomExists(req.params.roomID)) { // TODO: implement this function lol
       let context = {
          roomID: req.params.roomID
       };
