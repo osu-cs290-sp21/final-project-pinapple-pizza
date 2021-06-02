@@ -1,190 +1,180 @@
 /* general settings for the entire page */
+
+/* Common themes:
+    colors: eb4d8a pink, f0f0f0 light gray, 404040 dk gray
+    font: Nanum Gothic
+*/
+
+/* MAIN */
+/*main.handlebars*/
 body {
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   margin: 0;
   background-color: #f0f0f0;
 }
 
-/* header bar is OSU orange */
+/* HEADER */
+/*siteHeader.handlebars*/
 header {
-  background-color: #d73f09;
-  color: #fff;
+  background-color: #404040;
+  color: #ffffff;
 }
 
-/* clickable elements */
-a {
-  text-decoration: none;
-  color: #03a9f4;
-}
-
-a:hover {
-  color: #0c719e;
-}
-
-/* "OSU Lab Assistant" */
+/*siteHeader.handlebars*/
 .site-title {
   margin: 0;
   padding: 20px;
 }
 
-/* contains "Home" and "Call for TA" options*/
-.navbar {
-  font-size: 22px;
-  background-color: #fff;
+
+/* NAVBAR */
+/*siteNavbar.handlebars*/
+a:hover {
+  color: #f0f0f0;
 }
 
-/* not sure what's going on here but it looks good*/
+/*siteNavbar.handlebars*/
+.navbar {
+  font-size: 22px;
+  background-color: #ffffff;
+}
+
+/*siteNavbar.handlebars*/
 .navlist {
   margin: 0;
 }
 
-/* same */
+/*siteNavbar.handlebars*/
 .navitem {
   display: inline-block;
 }
 
+/*siteNavbar.handlebars*/
 .navitem:hover {
-  background-color: rgba(231, 132, 119, 0.18);
+  background-color: #f0f0f0;
 }
 
+/*siteNavbar.handlebars*/
 .navitem a {
   display: inline-block;
   color: #454545;
   padding: 10px 20px;
+  text-decoration: none;
 }
 
-/* what is this? */
-/*
-.navitem.right {
-  float: right;
-}
-*/
 
-/* container for the contents of the entire page */
+/* HOME */
+/*home.handlebars*/
 .home-page {
-  /*display: flex;*/
   flex-wrap: wrap;
-  padding: 5px;
+  padding: 20px;
 }
 
-/* container for posts*/
-/* there are two types: anouncement and question*/
+/*home.handlebars*/
 .post-container {
   display: flex;
   position: relative;
-  /*flex: 1 32%;*/
 
   padding: 10px;
   text-align: left;
   margin: 5px;
   flex-wrap: wrap;
 }
-/*
-.post-container {
-  margin: 50px 10%;
-  display: flex;
-  flex-wrap: wrap;
-}
-*/
 
-
-
-/* lab number and pin*/
-/* make different size fonts prettier!*/
+/*home.handlebars*/
 .title-container {
-  margin: 10px;
+  margin: 0px;
   padding: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
+  background-color: #f0f0f0;
   text-align: left;
 }
 
+/*home.handlebars*/
 .title-container h3 {
   margin: 10px 0;
-  font-size: 30px;
-  font-weight: 400;
+  font-weight: 800;
+  font-size: 25px;
 }
 
+/*home.handlebars*/
 .title-container h4 {
   margin: 10px 0;
-  font-size: 25px;
-  font-weight: 200;
-}
-
-/* actual individual post */
-/*
-.post {
-  margin: 5px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  background-color: #fff;
+  font-weight: 600;
   font-size: 20px;
 }
-*/
+
+/*home.handlebars*/
 .section-label-title {
   display: inline-block;
+  margin: 10px 0;
 }
+
+/*home.handlebars*/
+#add-question, #add-announcement {
+  position: static;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  border: 0px solid red;
+  /* change this color */
+  background-color: #eb4d8a;
+  font-size: 10px;
+  color: white;
+  padding: 10px;
+}
+
+/*home.handlebars*/
+#add-question:hover, #add-announcement:hover {
+    font-size: 10px;
+    cursor: pointer;
+}
+
+
+
+
+/* QUESTION */
+/*question.handlebars*/
 .post {
   min-width: 256px;
   display: inline;
   margin: 5px;
   padding: 20px;
-  border: 1px solid #dadada;
+  /*border: 1px solid #dadada;*/
   border-radius: 2px;
-  background-color: #fff;
+  /*background-color: #fff;*/
   position: relative;
+  border-right: 6px #d73f09;
 }
 
-
-.announcement-content .question-content {
+/*question.handlebars*/
+.question-content {
   margin: 10px;
 }
 
+/*question.handlebars*/
 .content {
   text-align: left;
 }
 
-
+/*question.handlebars*/
 .author {
   text-align: right;
   font-weight: bold;
 }
 
-#add-announcement {
-  position: static;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 100%;
-  border: 0px solid red;
-  background-color: #d73f09;
-  font-size: 10px;
-  color: white;
-  padding: 10px;
-}
 
-#add-question {
-  position: static;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 100%;
-  border: 0px solid red;
-  background-color: #d73f09;
-  font-size: 10px;
-  color: white;
-  padding: 10px;
-}
 
-#add-question:hover, #add-announcement:hover {
-    font-size: 15px;
-    cursor: pointer;
-}
 
-/*
- * Modal stuff
- */
- 
+
+
+
+
+/* QUESTION MODAL */
+/*questionModal.handlebars*/
 .hidden {
     display: None;
 }
 
+/*questionModal.handlebars*/
 #create-backdrop {
     position: fixed;
     top: 0;
@@ -194,6 +184,8 @@ a:hover {
     z-index: 1000;
     background-color: #000000d9;
 }
+
+/*questionModal.handlebars*/
 #create-question {
     position: fixed;
     top: 0;
@@ -201,7 +193,7 @@ a:hover {
     left: 0;
     right: 0;
     z-index: 1010;
-    
+
     width: auto;
     max-width: 600px;
     min-width: 350px;
@@ -212,27 +204,30 @@ a:hover {
     background-color: #fff;
 }
 
+/*questionModal.handlebars*/
 .create-question-header{
     position: relative;
     text-align: center;
 }
 
+/*questionModal.handlebars*/
 .create-question-body {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
 }
 
+/*questionModal.handlebars*/
 #question-text-input {
-
     width: 100%;
 }
 
+/*questionModal.handlebars*/
 #question-name-input {
     width: 100%;
 }
 
-
+/*questionModal.handlebars*/
 .create-question-input input,
 .create-question-input textarea {
   padding: 8px 0;
@@ -242,22 +237,25 @@ a:hover {
   margin-bottom: 2%;
 }
 
+/*questionModal.handlebars*/
 .create-question-input textarea {
     resize: none;
 }
 
+/*questionModal.handlebars*/
 .create-question-footer {
     position: relative;
     width: 80%;
     margin: 0 auto;
 }
 
+/*questionModal.handlebars*/
 #question-cancel, #question-post{
     color: white;
     background-color: #eb4d8a;
 
     padding: 10px 20px;
-    border: none; 
+    border: none;
     border-radius: 3px;
 
     text-align: center;
@@ -267,6 +265,7 @@ a:hover {
     cursor: pointer;
 }
 
+/*questionModal.handlebars*/
 #question-text-label, #question-name-label {
     color: #eb4d8a;
     position: absolute;
@@ -274,127 +273,38 @@ a:hover {
     padding: 0 5px;
 }
 
+/*questionModal.handlebars*/
 #question-text-label {
     top: 32px;
     left: 75px;
 }
 
+/*questionModal.handlebars*/
 #question-name-label {
     top: 112px;
     left: 75px;
 }
 
-#modal-backdrop {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.85);
-}
-
-#add-photo-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1010;
-  overflow: scroll;
-}
-
-.hidden {
-  display: none;
-}
-
-.action-button {
-  font-size: 20px;
-  color: white;
-  padding: 10px;
-  background-color: #000;
-  border: 1px solid #ababab;
-  border-radius: 5px;
-  font-weight: lighter;
-  cursor: pointer;
-}
-
-.action-button:hover {
-  background-color: #e78477;
-  border-color: #333;
-}
-
-.modal-dialog {
-  width: auto;
-  max-width: 600px;
-  min-width: 350px;
-  min-height: 300px;
-  margin: 40px auto;
-  background-color: #fff;
-  border-radius: 15px;
-}
-
+/*questionModal.handlebars*/
 .modal-header {
   position: relative;
   padding: 10px 20px;
 }
 
+/*questionModal.handlebars*/
 .modal-header h3 {
   margin: 0;
   font-size: 28px;
 }
 
-#modal-close {
-  position: absolute;
-  right: 10px;
-  top: 5px;
-  font-size: 24px;
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-}
-
+/*questionModal.handlebars*/
 .modal-body {
   padding: 20px;
 }
 
-.photo-input-element {
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.photo-input-element > label {
-  font-weight: 600;
-  flex: 1 75px;
-  margin-right: 10px;
-}
-
-.photo-input-element input {
-  flex: 6 200px;
-  padding: 8px;
-  font-size: 20px;
-  border: 1px solid #aaa;
-}
-
+/*questionModal.handlebars*/
 .modal-footer {
   display: flex;
   justify-content: flex-end;
   padding: 10px 10px 20px 10px;
-}
-
-#modal-cancel,
-#modal-accept {
-  margin-right: 20px;
-}
-
-#modal-cancel {
-  color: #333;
-  background-color: #fff;
-}
-
-#modal-cancel:hover {
-  background-color: #eee;
 }
