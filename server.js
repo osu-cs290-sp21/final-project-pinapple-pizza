@@ -106,9 +106,9 @@ app.put('/:roomID/queue/add', function(req, res, next) {
          roomNumber: req.body.roomNumber, reqType: req.body.reqType} 
       
       //Add to DB
-      db.collection("rooms").updateOne({roomID: req.params.roomID}, {$push: {people: personObj}})
-      
-      res.status(200).send("Successfully added to the queue!")
+      db.collection("rooms").updateOne({roomID: req.params.roomID}, {$push: {people: personObj}}).then(function() {
+         res.status(200).send("Successfully added to the queue!")
+      })
    }
    else
    {
