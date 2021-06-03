@@ -158,8 +158,7 @@ app.put('/:roomID/queue/remove', function(req, res, next) {
 app.get('/rooms/:roomID/queue', function(req, res, next) {
    db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
       if(result) {
-         //TODO: Get roomName
-         context = {people: result["people"], roomID: req.params.roomID, roomName: "MyLab"}
+         context = {people: result["people"], roomID: req.params.roomID, roomName: result["roomName"]}
          res.status(200).render('queue', context)
       } else {
          res.status(400).send("Room does not exist!")
