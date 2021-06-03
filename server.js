@@ -24,7 +24,17 @@ async function renderQuestionsAnnouncements(req, res, next) {
    res.status(200).render('home', {
       announcementArray: await announcements, questionsArray: await questions});
 }
-app.get('/', function(req, res, next) {
+
+
+
+app.get('/', function(req, res, next){
+   // Go to the landing page where user can create and join labs.
+   res.status(200).render('createJoinLab')
+});
+
+
+// TODO: this should route requests to rooms/:roomid
+app.get('/home', function(req, res, next) {
    //TODO: implement roomName, callback, and error handling
    renderQuestionsAnnouncements(req, res, next)
 });
