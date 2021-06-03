@@ -380,9 +380,17 @@ a:hover {
 }
 
 
+#invalid-pin{
+  color: red;
+}
+
+
 .contents-centered{
   text-align: center;
 }
+
+
+
 #modal-backdrop {
   position: fixed;
   top: 0;

@@ -33,6 +33,37 @@ app.get('/', function(req, res, next){
 });
 
 
+
+function passwordGood(password){
+   return true
+}
+
+// User pressed the join room button. Take them to their room.
+app.post('/rooms/join', function(req, res, next){
+
+   console.log("Join lab requested")
+
+   if(req.body && req.body.pin){
+
+      console.log("Join lab request: ", req.body.pin)
+
+
+      // TODO: Compare against all rooms, for now I'm just "accepting" pins with values over 200.
+      if(req.body.pin > 200){
+         console.log("Redirecting to questions and announcements.")
+         res.status(200).send()
+
+      }
+      else{
+         res.status(403).send()
+      }
+   }
+   else{
+      res.status(403).send()
+   }
+})
+
+
 // TODO: this should route requests to rooms/:roomid
 app.get('/home', function(req, res, next) {
    //TODO: implement roomName, callback, and error handling
@@ -86,8 +117,14 @@ function roomExists(room) {
 
 //Handle POSTS to create rooms
 app.post('/rooms/create', function(req, res, next) {
-   if(req.body && req.body.roomID && req.body.roomName)
+   if(req.body && req.body.roomID && req.body.roomName && req.password)
    {
+
+      if(!passwordGood(req.password)){
+         res.status(403).send("Invalid TA password.")
+         return
+      }
+
       let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, people: []} 
       db.collection("rooms").findOne({roomID: req.body.roomID})
       .then(function(result) {
