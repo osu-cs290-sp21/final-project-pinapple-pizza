@@ -1,0 +1,35 @@
+{{!-- {{
+    
+    Landing page view template.
+
+    Here is where TA's will go to create a lab and students will join their labs from.
+
+}} --}}
+
+
+<main class="create-join-lab-page">
+    
+    <div class="title-container">
+        <h1>Join a Lab</h1>
+    </div>
+
+
+    <article id="join-lab-module">
+        <div id="join-lab-input-field">
+
+            {{!-- {{ 
+                "required" makes it so I can see if there is any text in the input field. It sets the "valid" attribute in CSS.
+                I use this to move the placeholder text upwards when there is text in the field. - Aaron
+            }} --}}
+            <input type="text" id="join-lab-input" required/>
+            <label id="join-lab-label">Your Lab's PIN</label>
+        </div>
+
+        <button type="button" id="join-lab-button">Join</button>
+
+
+        
+
+    </article>
+
+</main>
