@@ -10,7 +10,7 @@
 body {
   font-family: 'Nanum Gothic', sans-serif;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: white;
 }
 
 /* HEADER */
@@ -85,7 +85,7 @@ a:hover {
 .title-container {
   margin: 0px;
   padding: 5px;
-  background-color: #f0f0f0;
+  background-color: white;
   text-align: left;
 }
 
@@ -106,7 +106,12 @@ a:hover {
 /*home.handlebars*/
 .section-label-title {
   display: inline-block;
+  border-bottom: 8px solid #f0f0f0;
   margin: 10px 0;
+}
+
+.section-title {
+  display: block;
 }
 
 /*home.handlebars*/
@@ -138,11 +143,10 @@ a:hover {
   display: inline;
   margin: 5px;
   padding: 20px;
-  /*border: 1px solid #dadada;*/
+  border-right: 3px solid #f0f0f0;
   border-radius: 2px;
   /*background-color: #fff;*/
   position: relative;
-  border-right: 6px #d73f09;
 }
 
 /*question.handlebars*/
@@ -169,13 +173,13 @@ a:hover {
 
 
 /* QUESTION MODAL */
-/*questionModal.handlebars*/
+/*questionModal.handlebars & announcementModal.handlebars*/
 .hidden {
     display: None;
 }
 
-/*questionModal.handlebars*/
-#create-backdrop {
+/*questionModal.handlebars & announcementModal.handlebars*/
+#create-backdrop,#create-announcement-backdrop {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -186,7 +190,7 @@ a:hover {
 }
 
 /*questionModal.handlebars*/
-#create-question {
+#create-question,#create-announcement {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -204,32 +208,33 @@ a:hover {
     background-color: #fff;
 }
 
+
 /*questionModal.handlebars*/
-.create-question-header{
+.create-post-header{
     position: relative;
-    text-align: center;
+    text-align: left;
+    margin: 20px;
 }
 
 /*questionModal.handlebars*/
-.create-question-body {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-}
+
 
 /*questionModal.handlebars*/
-#question-text-input {
+#question-text-input,
+#announcement-text-input,
+#question-name-input,
+#announcement-author-input {
     width: 100%;
 }
 
-/*questionModal.handlebars*/
-#question-name-input {
-    width: 100%;
-}
+
 
 /*questionModal.handlebars*/
 .create-question-input input,
-.create-question-input textarea {
+.create-question-input textarea,
+.announcement-input-element input,
+.announcement-input-element textarea {
+
   padding: 8px 0;
   font-size: 20px;
   border: 2px solid #eb4d8a;
@@ -238,73 +243,75 @@ a:hover {
 }
 
 /*questionModal.handlebars*/
-.create-question-input textarea {
+.create-question-input textarea,
+.announcement-input-element textarea {
     resize: none;
 }
 
 /*questionModal.handlebars*/
-.create-question-footer {
+.modal-footer {
     position: relative;
     width: 80%;
     margin: 0 auto;
 }
 
 /*questionModal.handlebars*/
-#question-cancel, #question-post{
+#question-cancel,
+#question-post,
+#announcement-modal-cancel-button,
+#announcement-modal-accept-button {
     color: white;
     background-color: #eb4d8a;
-
+    margin: 20px;
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
-
+    justify-content: center;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-
     cursor: pointer;
 }
 
+
+
 /*questionModal.handlebars*/
-#question-text-label, #question-name-label {
+#question-text-label,
+#question-name-label {
     color: #eb4d8a;
-    position: absolute;
+    position: relative;
     background-color: white;
     padding: 0 5px;
 }
 
 /*questionModal.handlebars*/
 #question-text-label {
-    top: 32px;
-    left: 75px;
+    /*top: 32px;
+    left: 75px;*/
 }
 
 /*questionModal.handlebars*/
 #question-name-label {
-    top: 112px;
-    left: 75px;
-}
-
-/*questionModal.handlebars*/
-.modal-header {
-  position: relative;
-  padding: 10px 20px;
-}
-
-/*questionModal.handlebars*/
-.modal-header h3 {
-  margin: 0;
-  font-size: 28px;
+    /*top: 112px;
+    left: 75px;*/
 }
 
 /*questionModal.handlebars*/
 .modal-body {
-  padding: 20px;
+    padding: 20px;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    width: 90%;
+}
+
+.create-question-input,
+.announcement-input-element {
+
 }
 
 /*questionModal.handlebars*/
 .modal-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 10px 10px 20px 10px;
 }
