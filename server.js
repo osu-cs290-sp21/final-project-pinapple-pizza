@@ -87,11 +87,12 @@ function roomExists(room) {
 //Handle POSTS to create rooms
 app.post('/rooms/create', function(req, res, next) {
    if(req.body && req.body.roomID && req.body.roomName)
-   {
-      let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, people: []} 
+   {      
+      //Make sure room exists first
       db.collection("rooms").findOne({roomID: req.body.roomID})
       .then(function(result) {
          if (!result) {
+            let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, people: []} 
             //Add to DB
             db.collection("rooms").insertOne(roomObj).then(function(){
                res.status(200).send("Successfully created room!")
@@ -110,19 +111,47 @@ app.post('/rooms/create', function(req, res, next) {
 //Update queue by adding person
 app.put('/:roomID/queue/add', function(req, res, next) {
    if(req.body && req.body.position && req.body.name && 
-      req.body.roomNumber && req.body.reqType)
+      req.body.roomNumber && req.body.reqType && req.params.roomID)
    {
-      let personObj = {position: req.body.position, name: req.body.name, 
-         roomNumber: req.body.roomNumber, reqType: req.body.reqType} 
-      
-      //Add to DB
-      db.collection("rooms").updateOne({roomID: req.params.roomID}, {$push: {people: personObj}}).then(function() {
-         res.status(200).send("Successfully added to the queue!")
+      //Make sure room exists first
+      db.collection("rooms").findOne({roomID: req.params.roomID})
+      .then(function(result){
+         if(result) {
+            let personObj = {position: req.body.position, name: req.body.name, 
+               roomNumber: req.body.roomNumber, reqType: req.body.reqType} 
+            
+            //Add to DB
+            db.collection("rooms").updateOne({roomID: req.params.roomID}, {$push: {people: personObj}})
+            .then(function() {
+               res.status(200).send("Successfully added to the queue!")
+            })
+         } else {
+            res.status(400).send("Room does not exist!")
+         }
       })
-   }
-   else
-   {
+   } else {
       res.status(400).send("Request does not contain the correct JSON!")
+   }
+})
+
+//Update queue by removing 1st person
+app.put('/:roomID/queue/remove', function(req, res, next) {
+   if(req.params.roomID)
+   {
+      //Make sure room exists first
+      db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
+         if(result) {               
+            //Add to DB
+            db.collection("rooms").updateOne({roomID: req.params.roomID}, {$pop: {people: -1}})
+            .then(function() {
+               res.status(200).send("Successfully removed from the queue!")
+            })
+         } else {
+            res.status(400).send("Room does not exist!")
+         }
+      })
+   } else {
+      res.status(400).send("Request does not match path!")
    }
 })
 
