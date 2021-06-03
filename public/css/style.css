@@ -292,8 +292,187 @@ a:hover {
 
 /*questionModal.handlebars*/
 #question-name-label {
-    /*top: 112px;
-    left: 75px;*/
+
+    top: 112px;
+    left: 75px;
+}
+
+
+
+/*
+* Join lab input. Hover effect adapted from Enrico Mattiazzi
+* https://codepen.io/ettzzi/pen/ZWgWKw 
+*/
+
+
+#join-lab-module {
+  margin: auto;
+
+  margin-top: +40px;
+  width: 50%;
+  padding: 10px;
+}
+
+
+#join-lab-input-field {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+
+  position: relative;
+  line-height: 44px;
+}
+
+
+#join-lab-label {
+  line-height: 0;
+  position: absolute;
+  top: 34px;
+  left: 10px;
+  width: 100%;
+
+  color: #d3d3d3;
+  transition: 0.2s all;
+  cursor: text;
+}
+
+#join-lab-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #d3d3d3;
+  box-shadow: none;
+  color: #111;
+}
+
+#join-lab-input:focus {
+  border-color: #eb4d8a;
+}
+
+/* On hover, focus, or when there is text in the box, move the label up and turn pink. */
+#join-lab-label:hover,
+#join-lab-input:valid~#join-lab-label,
+#join-lab-input:hover~#join-lab-label,
+#join-lab-input:focus~#join-lab-label{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+
+/* 
+* This shares styles with the cancel and post buttons on the ask a 
+* question module. Maybe we make a global class? - Aaron
+*/
+
+
+#join-lab-button {
+  color: white;
+  background-color: #eb4d8a;
+
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 3px;
+
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+
+  cursor: pointer;
+
+  margin: auto;
+
+  width: 50%;
+
+ 
+  display: flex;
+  align-items: center;
+  
+
+}
+
+
+#invalid-pin{
+  color: red;
+}
+
+
+.contents-centered{
+  text-align: center;
+}
+
+
+
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#add-photo-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+
+.hidden {
+  display: none;
+}
+
+.action-button {
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  background-color: #000;
+  border: 1px solid #ababab;
+  border-radius: 5px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #e78477;
+  border-color: #333;
+}
+
+.modal-dialog {
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.modal-header {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 28px;
+}
+
+#modal-close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 /*questionModal.handlebars*/
