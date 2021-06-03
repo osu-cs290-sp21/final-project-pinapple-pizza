@@ -156,34 +156,44 @@ app.put('/:roomID/queue/remove', function(req, res, next) {
 })
 
 app.get('/rooms/:roomID/queue', function(req, res, next) {
+   db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
+      if(result) {
+         //TODO: Get roomName
+         context = {people: result["people"], roomID: req.params.roomID, roomName: "MyLab"}
+         res.status(200).render('queue', context)
+      } else {
+         res.status(400).send("Room does not exist!")
+      }
+   })
+      
    // TODO: Get people from db
    // Temporary solution: hard coded people
-   context = {
-      people: [
-         {
-            position: "1",
-            name: "Bob",
-            roomNumber: "1",
-            reqType: "Question"
-         },
-         {
-            position: "2",
-            name: "Sally",
-            roomNumber: "26",
-            reqType: "Checkoff"
-         },
-         {
-            position: "3",
-            name: "Joey",
-            roomNumber: "2",
-            reqType: "Question"
-         }
-      ],
-      roomID: req.params.roomID,
-      roomName: "Super cool lab room thingy"
-   };
+   // context = {
+   //    people: [
+   //       {
+   //          position: "1",
+   //          name: "Bob",
+   //          roomNumber: "1",
+   //          reqType: "Question"
+   //       },
+   //       {
+   //          position: "2",
+   //          name: "Sally",
+   //          roomNumber: "26",
+   //          reqType: "Checkoff"
+   //       },
+   //       {
+   //          position: "3",
+   //          name: "Joey",
+   //          roomNumber: "2",
+   //          reqType: "Question"
+   //       }
+   //    ],
+   //    roomID: req.params.roomID,
+   //    roomName: "Super cool lab room thingy"
+   // };
 
-   res.status(200).render('queue', context);
+   // res.status(200).render('queue', context)
 
    /*
    // Make sure that the request is valid and the twit exists
