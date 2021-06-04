@@ -18,6 +18,10 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 app.use(express.json())
 
 async function renderQuestionsAnnouncements(req, res, next) {
+
+   let roomName = req.body.roomName
+
+
    let questions = db.collection('questions').find({roomName: "room1"}).toArray()
    let announcements = db.collection('announcements').find({roomName: "room1"}).toArray()
 
@@ -33,8 +37,8 @@ app.get('/', function(req, res, next){
 });
 
 
-
-function passwordGood(password){
+// Password must be checked for the room with the corresponding pin.
+function passwordGood(pin, password){
    return true
 }
 
@@ -47,24 +51,24 @@ app.post('/rooms/join', function(req, res, next){
 
       console.log("Join lab request: ", req.body.pin)
 
-
-      // TODO: Compare against all rooms, for now I'm just "accepting" pins with values over 200.
-      if(req.body.pin > 200){
-         console.log("Redirecting to questions and announcements.")
+      if(roomExists(pin)){
+         console.log("Redirecting user to questions and announcements for the associated room.")
          res.status(200).send()
-
       }
-      else{
+      else
+      {
+         console.log("Room doesn't exist")
          res.status(403).send()
       }
    }
    else{
+      console.log("Request invalid")
       res.status(403).send()
    }
 })
 
 
-// TODO: this should route requests to rooms/:roomid
+// TODO: this only exists for testing, rooms should have their own pages.
 app.get('/home', function(req, res, next) {
    //TODO: implement roomName, callback, and error handling
    renderQuestionsAnnouncements(req, res, next)
@@ -111,7 +115,7 @@ app.post('/announcements/add', function(req, res, next) {
    res.status(403).send('Invalid password!')
 })
 
-function roomExists(room) {
+function roomExists(roomID) {
    return true
 }
 
