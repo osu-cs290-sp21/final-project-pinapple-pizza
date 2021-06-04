@@ -1,8 +1,20 @@
 
+
+
+function goToLab(pin){
+    // Go to the lab's home page (ex. localhost:3000/####)
+    document.location = "/rooms/" + pin
+}
+
+
+
+
 // JOINING LABS //
 
 let joinButton = document.getElementById('join-lab-button')
 joinButton.addEventListener('click', handleJoinLab)
+
+let invalidPinText = document.getElementById('invalid-pin')
 
 
 // Send a join lab request with entered pin.
@@ -25,14 +37,12 @@ function handleJoinLab(){
     request.addEventListener('load', function(event) {
 
         if (event.target.status === 200) {
-
-            // Go to the lab's home page (ex. localhost:3000/####)
-            document.location = "/" + joinPinObj.pin
+            goToLab(joinPinObj.pin)
         }
         else
         {
             // Show invalid pin error message.
-            document.getElementById('invalid-pin').classList.remove('hidden')
+            invalidPinText.classList.remove('hidden')
         }
     })
 
@@ -56,7 +66,7 @@ function createLab(){
         createRoomRequest(pin, name, password)
     }
     else{
-        invalidLabCreate()
+        showCreateLabError()
         alert("Pin, name, or password were empty. These are all required fields to create a lab.")
     }
 
@@ -79,23 +89,33 @@ function createRoomRequest(pin, name, password){
         {
             let msg = event.target.response
             alert(msg)
-            invalidLabCreate()
+            showCreateLabError()
         }
         else
         {
             console.log("Created room!")
+
             // Go to the lab's home page (ex. localhost:3000/####)
-            document.location = "/" + pin
+            goToLab(pin)
         }
     })
     request.send(requestBody)
 }
 
+createLabError = document.getElementById('invalid-create-lab')
 
-function invalidLabCreate(){
+
+function showCreateLabError(){
     // Unhide the error text if it was hidden.
-    if(document.getElementById('invalid-create-lab').classList.contains('hidden')){
-        document.getElementById('invalid-create-lab').classList.remove('hidden')
+    if(createLabError.classList.contains('hidden')){
+        createLabError.classList.remove('hidden')
+    }
+}
+
+
+function hideCreateLabError(){
+    if(!createLabError.classList.contains('hidden')){
+        createLabError.classList.add('hidden')
     }
 }
 
@@ -107,9 +127,7 @@ openLabCreatorButton.addEventListener('click', openLabCreatorModule)
 function openLabCreatorModule(){
     
     // Hide the error text if there was any
-    if(!document.getElementById('invalid-create-lab').classList.contains('hidden')){
-        document.getElementById('invalid-create-lab').classList.add('hidden')
-    }
+    hideCreateLabError()
     
     // Unhide modal by removing 'hidden' class
     document.getElementById('create-backdrop').classList.remove('hidden');
