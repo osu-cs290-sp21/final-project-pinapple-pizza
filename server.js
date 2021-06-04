@@ -18,12 +18,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 app.use(express.json())
 
 async function renderQuestionsAnnouncements(req, res, next) {
-
-   let roomName = req.body.roomName
-
-
-   let questions = db.collection('questions').find({roomName: "room1"}).toArray()
-   let announcements = db.collection('announcements').find({roomName: "room1"}).toArray()
+   let questions = db.collection('questions').find({roomID: req.params.roomID}).toArray()
+   let announcements = db.collection('announcements').find({roomID: req.params.roomID}).toArray()
 
    res.status(200).render('home', {
       announcementArray: await announcements, questionsArray: await questions});
@@ -68,28 +64,43 @@ app.post('/rooms/join', function(req, res, next){
 })
 
 
-// TODO: this only exists for testing, rooms should have their own pages.
-app.get('/home', function(req, res, next) {
-   //TODO: implement roomName, callback, and error handling
-   renderQuestionsAnnouncements(req, res, next)
+//Handle request to room's pages 
+app.get('/:roomID', function(req, res, next) {
+   db.collection("rooms").findOne({roomID: req.params.roomID})
+   .then(function(result) {
+      if(result)
+      {
+         renderQuestionsAnnouncements(req, res, next)
+      } else {
+         next()
+      }
+   })
 });
 
 app.use(express.static('public'));
 
 //Handle POSTS to add questions
 app.post('/question/add', function(req, res, next) {
-   if(req.body && req.body.questionText && req.body.questionName)
+   if(req.body && req.body.questionText && req.body.questionName && req.body.roomID)
    {
       console.log("Post request added: ")
       console.log("- questionText: ", req.body.questionText)
       console.log("- questionName: ", req.body.questionName)
-      console.log("- roomName: ", req.body.roomName)
-      
-      let questionObj = {text: req.body.questionText, name: req.body.questionName, roomName:req.body.roomName}
-      //Add to DB
-      db.collection("questions").insertOne(questionObj)
-      
-      res.status(200).send("Successfully added question!")
+      console.log("- roomID: ", req.body.roomID)
+
+      db.collection("rooms").findOne({roomID: req.body.roomID})
+      .then(function(result) {
+         if (result) {
+            let questionObj = {text: req.body.questionText, name: req.body.questionName, roomID:req.body.roomID}
+            //Add to DB
+            db.collection("questions").insertOne(questionObj)
+            .then(function() {
+               res.status(200).send("Successfully added question!")
+            })
+         } else {
+            res.status(400).send("Error. Room does not exist!")
+         }
+      })
    }
    else
    {
