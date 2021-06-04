@@ -57,6 +57,13 @@ function createPostRequest(jsonObj, route, callback)
     request.send(requestBody)
 }
 
+function getRoomID()
+{
+    let path = window.location.pathname
+    pathParts = path.split('/')
+    return pathParts[1]
+}
+
 //Verify input and send a POST request
 function handlePostQuestion()
 {
@@ -66,7 +73,7 @@ function handlePostQuestion()
     if (textValue && nameValue) 
     {
         //REPLACE ROOM w/NAME
-        createPostRequest({questionText: textValue, questionName: nameValue, roomID: "123"}, "/question/add", function (){
+        createPostRequest({questionText: textValue, questionName: nameValue, roomID: getRoomID()}, "/question/add", function (){
             clearAndHideQuestion()
             
             //Update UI
@@ -118,7 +125,7 @@ function postAnnouncement() {
     if (textValue && authorValue && passwordValue) 
     {
         // TODO: room name
-        createPostRequest({announcementText: textValue, announcementAuthor: authorValue, taPassword: passwordValue, roomName: 'room1'}, '/announcements/add', function() {
+        createPostRequest({announcementText: textValue, announcementAuthor: authorValue, taPassword: passwordValue, roomID: getRoomID()}, '/announcements/add', function() {
             clearAndHideAnnouncement();
         });
     }
