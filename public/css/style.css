@@ -16,6 +16,18 @@ body {
 /* HEADER */
 /*siteHeader.handlebars*/
 header {
+  background-color: #222222;
+  color: #fff;
+}
+
+/* clickable elements */
+a {
+  text-decoration: none;
+  color: #03a9f4;
+}
+
+a:hover {
+  color: #0c719e;
   background-color: #404040;
   color: #ffffff;
 }
@@ -88,6 +100,7 @@ a:hover {
   background-color: white;
   text-align: left;
 }
+
 
 /*home.handlebars*/
 .title-container h3 {
@@ -299,6 +312,54 @@ a:hover {
 
 
 
+#lab-id-label,
+#lab-name-label,
+#lab-password-label{
+  color: #eb4d8a;
+  position: relative;
+  background-color: white;
+  padding: 0 5px;
+  top: 24px;
+  left: 10px;
+  width:fit-content;
+}
+
+
+
+#create-lab {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  padding-bottom: 100px;
+  height: fit-content;
+
+  margin: 40px auto;
+  background-color: #fff;
+}
+
+.create-question-input input,
+.create-question-input textarea {
+  padding: 8px 0;
+  font-size: 20px;
+  border: 2px solid #eb4d8a;
+  border-radius: 1px;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+.create-question-input textarea {
+    resize: none;
+}
+
+
+
 /*
 * Join lab input. Hover effect adapted from Enrico Mattiazzi
 * https://codepen.io/ettzzi/pen/ZWgWKw 
@@ -325,9 +386,9 @@ a:hover {
 
 
 #join-lab-label {
-  line-height: 0;
+  line-height: 6px;
   position: absolute;
-  top: 34px;
+  top: 32px;
   left: 10px;
   width: 100%;
 
@@ -354,7 +415,8 @@ a:hover {
 #join-lab-label:hover,
 #join-lab-input:valid~#join-lab-label,
 #join-lab-input:hover~#join-lab-label,
-#join-lab-input:focus~#join-lab-label{
+#join-lab-input:focus~#join-lab-label
+{
   font-size: 24px;
   top: 0px;
   color: #eb4d8a;
@@ -392,15 +454,51 @@ a:hover {
 
 }
 
-
-#invalid-pin{
+/* When your join pin is invalid */
+#invalid-pin, #invalid-create-lab{
   color: red;
 }
+
+
 
 
 .contents-centered{
   text-align: center;
 }
+
+
+/* Button for opening lab creator module */
+#create-lab-open-button{
+  text-align: center;
+  color:#eb4d8a;
+  width: 150px;
+  font-size: 48px;
+  border: none;
+
+  cursor: pointer;
+
+  margin-top: 400px;
+}
+
+
+#create-lab-create-button, #create-lab-cancel-button{
+  color: white;
+  background-color: #eb4d8a;
+
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 3px;
+
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+
+
+
 
 
 
