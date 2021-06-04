@@ -66,7 +66,7 @@ function handlePostQuestion()
     if (textValue && nameValue) 
     {
         //REPLACE ROOM w/NAME
-        createPostRequest({questionText: textValue, questionName: nameValue, roomName: "room1"}, "/question/add", function (){
+        createPostRequest({questionText: textValue, questionName: nameValue, roomID: "123"}, "/question/add", function (){
             clearAndHideQuestion()
             
             //Update UI
