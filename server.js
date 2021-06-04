@@ -118,20 +118,20 @@ function roomExists(room) {
 //Handle POSTS to create rooms
 app.post('/rooms/create', function(req, res, next) {
 
-   if(req.body && req.body.roomID && req.body.roomName && req.password)
+   if(req.body && req.body.roomID && req.body.roomName && req.body.roomPassword)
    {
 
-      if(!passwordGood(req.password)){
+      if(!passwordGood(req.body.roomPassword)){
          res.status(403).send("Invalid TA password.")
          return
       }
 
-      let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, people: []} 
+      let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, password: req.body.roomPassword, people: []} 
       
       db.collection("rooms").findOne({roomID: req.body.roomID})
       .then(function(result) {
          if (!result) {
-            let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, people: []} 
+            let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, password: req.body.roomPassword, people: []} 
             //Add to DB
             db.collection("rooms").insertOne(roomObj).then(function(){
                res.status(200).send("Successfully created room!")
