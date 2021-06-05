@@ -47,15 +47,18 @@ app.post('/rooms/join', function(req, res, next){
 
       console.log("Join lab request: ", req.body.pin)
 
-      if(roomExists(pin)){
-         console.log("Redirecting user to questions and announcements for the associated room.")
-         res.status(200).send()
-      }
-      else
-      {
-         console.log("Room doesn't exist")
-         res.status(403).send()
-      }
+      db.collection("rooms").findOne({roomID: req.body.pin})
+      .then(function(result) {
+         if(result){
+            console.log("Redirecting user to questions and announcements for the associated room.")
+            res.status(200).send()
+         }
+         else
+         {
+            console.log("Room doesn't exist")
+            res.status(403).send()
+         }
+      })
    }
    else{
       console.log("Request invalid")
