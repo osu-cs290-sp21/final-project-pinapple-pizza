@@ -6,7 +6,6 @@
 */
 
 /* MAIN */
-/*main.handlebars*/
 body {
   font-family: 'Nanum Gothic', sans-serif;
   margin: 0;
@@ -14,59 +13,38 @@ body {
 }
 
 /* HEADER */
-/*siteHeader.handlebars*/
 header {
   background-color: #222222;
   color: #fff;
 }
 
-/* clickable elements */
-a {
-  text-decoration: none;
-  color: #03a9f4;
-}
-
-a:hover {
-  color: #0c719e;
-  background-color: #404040;
-  color: #ffffff;
-}
-
-/*siteHeader.handlebars*/
 .site-title {
   margin: 0;
   padding: 20px;
 }
 
-
 /* NAVBAR */
-/*siteNavbar.handlebars*/
-a:hover {
-  color: #f0f0f0;
+a {
+  text-decoration: none;
 }
 
-/*siteNavbar.handlebars*/
 .navbar {
   font-size: 22px;
   background-color: #ffffff;
 }
 
-/*siteNavbar.handlebars*/
 .navlist {
   margin: 0;
 }
 
-/*siteNavbar.handlebars*/
 .navitem {
   display: inline-block;
 }
 
-/*siteNavbar.handlebars*/
 .navitem:hover {
   background-color: #f0f0f0;
 }
 
-/*siteNavbar.handlebars*/
 .navitem a {
   display: inline-block;
   color: #454545;
@@ -76,24 +54,20 @@ a:hover {
 
 
 /* HOME */
-/*home.handlebars*/
 .home-page {
   flex-wrap: wrap;
   padding: 20px;
 }
 
-/*home.handlebars*/
 .post-container {
   display: flex;
   position: relative;
-
   padding: 10px;
   text-align: left;
   margin: 5px;
   flex-wrap: wrap;
 }
 
-/*home.handlebars*/
 .title-container {
   margin: 0px;
   padding: 5px;
@@ -101,25 +75,23 @@ a:hover {
   text-align: left;
 }
 
-
-/*home.handlebars*/
 .title-container h3 {
   margin: 10px 0;
   font-weight: 800;
   font-size: 25px;
 }
 
-/*home.handlebars*/
 .title-container h4 {
   margin: 10px 0;
   font-weight: 600;
   font-size: 20px;
 }
 
-/*home.handlebars*/
 .section-label-title {
   display: inline-block;
-  border-bottom: 8px solid #f0f0f0;
+  font-weight: 600;
+  /*border-bottom: 8px solid #f0f0f0;*/
+  border-bottom: 2px solid #d3d3d3;
   margin: 10px 0;
 }
 
@@ -127,7 +99,6 @@ a:hover {
   display: block;
 }
 
-/*home.handlebars*/
 #add-question, #add-announcement {
   position: static;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
@@ -140,17 +111,13 @@ a:hover {
   padding: 10px;
 }
 
-/*home.handlebars*/
 #add-question:hover, #add-announcement:hover {
     font-size: 10px;
     cursor: pointer;
 }
 
 
-
-
 /* QUESTION */
-/*question.handlebars*/
 .post {
   min-width: 256px;
   display: inline;
@@ -162,36 +129,25 @@ a:hover {
   position: relative;
 }
 
-/*question.handlebars*/
 .question-content {
   margin: 10px;
 }
 
-/*question.handlebars*/
 .content {
   text-align: left;
 }
 
-/*question.handlebars*/
 .author {
   text-align: right;
   font-weight: bold;
 }
 
 
-
-
-
-
-
-
-/* QUESTION MODAL */
-/*questionModal.handlebars & announcementModal.handlebars*/
+/* QUESTION & ANNOUNCEMENT MODALS */
 .hidden {
     display: None;
 }
 
-/*questionModal.handlebars & announcementModal.handlebars*/
 #create-backdrop,#create-announcement-backdrop {
     position: fixed;
     top: 0;
@@ -202,7 +158,6 @@ a:hover {
     background-color: #000000d9;
 }
 
-/*questionModal.handlebars*/
 #create-question,#create-announcement {
     position: fixed;
     top: 0;
@@ -210,29 +165,21 @@ a:hover {
     left: 0;
     right: 0;
     z-index: 1010;
-
     width: auto;
     max-width: 600px;
     min-width: 350px;
     min-height: 300px;
     height: fit-content;
-
     margin: 40px auto;
     background-color: #fff;
 }
 
-
-/*questionModal.handlebars*/
 .create-post-header{
     position: relative;
     text-align: left;
     margin: 20px;
 }
 
-/*questionModal.handlebars*/
-
-
-/*questionModal.handlebars*/
 #question-text-input,
 #announcement-text-input,
 #question-name-input,
@@ -241,13 +188,10 @@ a:hover {
 }
 
 
-
-/*questionModal.handlebars*/
 .create-question-input input,
 .create-question-input textarea,
 .announcement-input-element input,
 .announcement-input-element textarea {
-
   padding: 8px 0;
   font-size: 20px;
   border: 2px solid #eb4d8a;
@@ -255,40 +199,52 @@ a:hover {
   margin-bottom: 2%;
 }
 
-/*questionModal.handlebars*/
 .create-question-input textarea,
-.announcement-input-element textarea {
+/*.announcement-input-element textarea*/ {
     resize: none;
 }
 
-/*questionModal.handlebars*/
+.announcement-input-element {
+  /*display: flex;
+  align-items: center;*/
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  position: relative;
+  line-height: 44px;
+}
+
 .modal-footer {
     position: relative;
     width: 80%;
     margin: 0 auto;
 }
 
-/*questionModal.handlebars*/
 #question-cancel,
 #question-post,
 #announcement-modal-cancel-button,
 #announcement-modal-accept-button {
     color: white;
     background-color: #eb4d8a;
-    margin: 20px;
+    /*margin: 20px;*/
+    margin: 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
     justify-content: center;
-    text-align: center;
+    /*text-align: center;*/
+    text-align: left;
     text-decoration: none;
-    font-size: 16px;
+    /*font-size: 16px;*/
+    font-size: 24px;
     cursor: pointer;
+    /*below is new too*/
+    width: 50%;
+    display: flex;
+    /*align-items: center;*/
+    align-items: left;
 }
-
-
-
-/*questionModal.handlebars*/
+/*
 #question-text-label,
 #question-name-label {
     color: #eb4d8a;
@@ -296,21 +252,15 @@ a:hover {
     background-color: white;
     padding: 0 5px;
 }
-
-/*questionModal.handlebars*/
 #question-text-label {
-    /*top: 32px;
-    left: 75px;*/
+    top: 32px;
+    left: 75px;
 }
-
-/*questionModal.handlebars*/
 #question-name-label {
-
     top: 112px;
     left: 75px;
 }
-
-
+*/
 
 #lab-id-label,
 #lab-name-label,
@@ -324,8 +274,6 @@ a:hover {
   width:fit-content;
 }
 
-
-
 #create-lab {
   position: fixed;
   top: 0;
@@ -333,13 +281,11 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1010;
-  
   width: auto;
   max-width: 600px;
   min-width: 350px;
   padding-bottom: 100px;
   height: fit-content;
-
   margin: 40px auto;
   background-color: #fff;
 }
@@ -358,14 +304,10 @@ a:hover {
     resize: none;
 }
 
-
-
 /*
 * Join lab input. Hover effect adapted from Enrico Mattiazzi
-* https://codepen.io/ettzzi/pen/ZWgWKw 
+* https://codepen.io/ettzzi/pen/ZWgWKw
 */
-
-
 #join-lab-module {
   margin: auto;
 
@@ -374,16 +316,13 @@ a:hover {
   padding: 10px;
 }
 
-
 #join-lab-input-field {
   margin: auto;
   width: 50%;
   padding: 10px;
-
   position: relative;
   line-height: 44px;
 }
-
 
 #join-lab-label {
   line-height: 6px;
@@ -391,7 +330,31 @@ a:hover {
   top: 32px;
   left: 10px;
   width: 100%;
+  color: #d3d3d3;
+  transition: 0.2s all;
+  cursor: text;
+}
 
+#announcement-text-label,
+#announcement-author-label,
+#announcement-author-label {
+  line-height: 6px;
+  position: sticky; /*static; relative; absolute;*/
+  top: 32px;
+  left: 10px;
+  width: 100%;
+  color: #d3d3d3;
+  transition: 0.2s all;
+  cursor: text;
+}
+
+#question-text-label,
+#question-name-label {
+  line-height: 6px;
+  position: sticky; /*static; relative; absolute;*/
+  top: 32px;
+  left: 10px;
+  width: 100%;
   color: #d3d3d3;
   transition: 0.2s all;
   cursor: text;
@@ -407,7 +370,41 @@ a:hover {
   color: #111;
 }
 
+#announcement-text-input,
+#announcement-author-input,
+#announcement-password-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #d3d3d3;
+  box-shadow: none;
+  color: #111;
+}
+
+#question-text-input,
+#question-name-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #d3d3d3;
+  box-shadow: none;
+  color: #111;
+}
+
 #join-lab-input:focus {
+  border-color: #eb4d8a;
+}
+
+#announcement-text-input:focus,
+#announcement-author-input:focus,
+#announcement-password-input:focus {
+  border-color: #eb4d8a;
+}
+
+#question-text-input:focus,
+#question-name-input:focus {
   border-color: #eb4d8a;
 }
 
@@ -422,9 +419,58 @@ a:hover {
   color: #eb4d8a;
 }
 
+#announcement-text-label:hover,
+#announcement-author-input:valid~#announcement-text-label,
+#announcement-author-input:hover~#announcement-text-label,
+#announcement-author-input:focus~#announcement-text-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
 
-/* 
-* This shares styles with the cancel and post buttons on the ask a 
+#announcement-text-label:hover,
+#announcement-text-input:valid~#announcement-text-label,
+#announcement-text-input:hover~#announcement-text-label,
+#announcement-text-input:focus~#announcement-text-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#announcement-text-label:hover,
+#announcement-password-input:valid~#announcement-text-label,
+#announcement-password-input:hover~#announcement-text-label,
+#announcement-password-input:focus~#announcement-text-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#question-text-label:hover,
+#question-text-input:valid~#question-text-label,
+#question-text-input:hover~#question-text-label,
+#question-text-input:focus~#question-text-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#question-name-label:hover,
+#question-name-input:valid~#question-name-label,
+#question-name-input:hover~#question-name-label,
+#question-name-input:focus~#question-name-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+/*
+* This shares styles with the cancel and post buttons on the ask a
 * question module. Maybe we make a global class? - Aaron
 */
 
@@ -432,35 +478,23 @@ a:hover {
 #join-lab-button {
   color: white;
   background-color: #eb4d8a;
-
   padding: 10px 20px;
-  border: none; 
+  border: none;
   border-radius: 3px;
-
   text-align: center;
   text-decoration: none;
   font-size: 24px;
-
   cursor: pointer;
-
   margin: auto;
-
   width: 50%;
-
- 
   display: flex;
   align-items: center;
-  
-
 }
 
 /* When your join pin is invalid */
 #invalid-pin, #invalid-create-lab{
   color: red;
 }
-
-
-
 
 .contents-centered{
   text-align: center;
@@ -486,7 +520,7 @@ a:hover {
   background-color: #eb4d8a;
 
   padding: 10px 20px;
-  border: none; 
+  border: none;
   border-radius: 3px;
 
   text-align: center;
@@ -578,13 +612,11 @@ a:hover {
     padding: 20px;
     /*margin-left: auto;
     margin-right: auto;*/
+    position: relative;
+    display: table;
     width: 90%;
 }
 
-.create-question-input,
-.announcement-input-element {
-
-}
 
 /*questionModal.handlebars*/
 .modal-footer {
