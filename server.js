@@ -209,7 +209,7 @@ app.put('/:roomID/queue/remove', function(req, res, next) {
    }
 })
 
-app.get('/rooms/:roomID/queue', function(req, res, next) {
+app.get('/:roomID/queue', function(req, res, next) {
    db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
       if(result) {
          context = {people: result["people"], roomID: req.params.roomID, roomName: result["roomName"]}
