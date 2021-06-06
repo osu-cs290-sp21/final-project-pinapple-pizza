@@ -18,13 +18,15 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 app.use(express.json())
 
 async function renderQuestionsAnnouncements(req, res, next) {
-   let questions = db.collection('questions').find({roomID: req.params.roomID}).toArray()
-   let announcements = db.collection('announcements').find({roomID: req.params.roomID}).toArray()
+  let questions = db.collection('questions').find({roomID: req.params.roomID}).toArray()
+  let announcements = db.collection('announcements').find({roomID: req.params.roomID}).toArray()
 
-   res.status(200).render('home', {
-      announcementArray: await announcements, questionsArray: await questions});
+  res.status(200).render('home', {
+     announcementArray: await announcements, questionsArray: await questions,
+     roomIdHome: req.params.roomID,
+     roomNameHome: 'something'
+   })
 }
-
 
 
 app.get('/', function(req, res, next){
@@ -67,7 +69,7 @@ app.post('/rooms/join', function(req, res, next){
 })
 
 
-//Handle request to room's pages 
+//Handle request to room's pages
 app.get('/:roomID', function(req, res, next) {
    db.collection("rooms").findOne({roomID: req.params.roomID})
    .then(function(result) {
@@ -144,12 +146,12 @@ app.post('/rooms/create', function(req, res, next) {
          return
       }
 
-      let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, password: req.body.roomPassword, people: []} 
-      
+      let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, password: req.body.roomPassword, people: []}
+
       db.collection("rooms").findOne({roomID: req.body.roomID})
       .then(function(result) {
          if (!result) {
-            let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, password: req.body.roomPassword, people: []} 
+            let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, password: req.body.roomPassword, people: []}
             //Add to DB
             db.collection("rooms").insertOne(roomObj).then(function(){
                res.status(200).send("Successfully created room!")
@@ -167,16 +169,16 @@ app.post('/rooms/create', function(req, res, next) {
 
 //Update queue by adding person
 app.put('/:roomID/queue/add', function(req, res, next) {
-   if(req.body && req.body.position && req.body.name && 
+   if(req.body && req.body.position && req.body.name &&
       req.body.roomNumber && req.body.reqType && req.params.roomID)
    {
       //Make sure room exists first
       db.collection("rooms").findOne({roomID: req.params.roomID})
       .then(function(result){
          if(result) {
-            let personObj = {position: req.body.position, name: req.body.name, 
-               roomNumber: req.body.roomNumber, reqType: req.body.reqType} 
-            
+            let personObj = {position: req.body.position, name: req.body.name,
+               roomNumber: req.body.roomNumber, reqType: req.body.reqType}
+
             //Add to DB
             db.collection("rooms").updateOne({roomID: req.params.roomID}, {$push: {people: personObj}})
             .then(function() {
@@ -197,7 +199,7 @@ app.put('/:roomID/queue/remove', function(req, res, next) {
    {
       //Make sure room exists first
       db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
-         if(result) {               
+         if(result) {
             //Add to DB
             db.collection("rooms").updateOne({roomID: req.params.roomID}, {$pop: {people: -1}})
             .then(function() {
@@ -221,7 +223,7 @@ app.get('/:roomID/queue', function(req, res, next) {
          res.status(400).send("Room does not exist!")
       }
    })
-      
+
    // TODO: Get people from db
    // Temporary solution: hard coded people
    // context = {

@@ -175,34 +175,38 @@ a {
 }
 
 .create-post-header{
+    display: inline-block;
     position: relative;
-    text-align: left;
+    /*text-align: left;*/
     margin: 20px;
+    width: 90%
 }
 
 #question-text-input,
 #announcement-text-input,
 #question-name-input,
-#announcement-author-input {
+#announcement-author-input,
+#announcement-password-input {
     width: 100%;
 }
 
-
+/* Take this out? */
 .create-question-input input,
 .create-question-input textarea,
 .announcement-input-element input,
 .announcement-input-element textarea {
-  padding: 8px 0;
+/*  padding: 8px 0;
   font-size: 20px;
   border: 2px solid #eb4d8a;
   border-radius: 1px;
-  margin-bottom: 2%;
+  margin-bottom: 2%;*/
 }
 
+/*
 .create-question-input textarea,
-/*.announcement-input-element textarea*/ {
+.announcement-input-element textarea {
     resize: none;
-}
+}*/
 
 .announcement-input-element {
   /*display: flex;
@@ -420,16 +424,6 @@ a {
 }
 
 #announcement-text-label:hover,
-#announcement-author-input:valid~#announcement-text-label,
-#announcement-author-input:hover~#announcement-text-label,
-#announcement-author-input:focus~#announcement-text-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
-
-#announcement-text-label:hover,
 #announcement-text-input:valid~#announcement-text-label,
 #announcement-text-input:hover~#announcement-text-label,
 #announcement-text-input:focus~#announcement-text-label
@@ -439,10 +433,20 @@ a {
   color: #eb4d8a;
 }
 
-#announcement-text-label:hover,
-#announcement-password-input:valid~#announcement-text-label,
-#announcement-password-input:hover~#announcement-text-label,
-#announcement-password-input:focus~#announcement-text-label
+#announcement-author-label:hover,
+#announcement-author-input:valid~#announcement-author-label,
+#announcement-author-input:hover~#announcement-author-label,
+#announcement-author-input:focus~#announcement-author-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#announcement-password-label:hover,
+#announcement-password-input:valid~#announcement-password-label,
+#announcement-password-input:hover~#announcement-password-label,
+#announcement-password-input:focus~#announcement-password-label
 {
   font-size: 24px;
   top: 0px;
@@ -508,9 +512,7 @@ a {
   width: 150px;
   font-size: 48px;
   border: none;
-
   cursor: pointer;
-
   margin-top: 400px;
 }
 
@@ -531,11 +533,6 @@ a {
 }
 
 
-
-
-
-
-
 #modal-backdrop {
   position: fixed;
   top: 0;
@@ -546,15 +543,6 @@ a {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-#add-photo-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1010;
-  overflow: scroll;
-}
 
 .hidden {
   display: none;
@@ -623,4 +611,16 @@ a {
   display: flex;
   justify-content: center;
   padding: 10px 10px 20px 10px;
+}
+
+.announcement-modal-close-button {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  border: 0px solid red;
+  /* change this color */
+  background-color: #eb4d8a;
+  font-size: 10px;
+  color: white;
+  padding: 10px;
+  float: right;
 }

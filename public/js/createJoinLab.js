@@ -3,7 +3,9 @@
 
 function goToLab(pin){
     // Go to the lab's home page (ex. localhost:3000/####)
-    document.location = "/rooms/" + pin
+    // mel 6/5: redirect "join" button to room
+    // document.location = "/rooms/" + pin
+    document.location = pin
 }
 
 
@@ -55,7 +57,7 @@ function handleJoinLab(){
 
 // Send a post request with the proposed lab name, id, and password.
 function createLab(){
-    
+
     let pin = document.getElementById("lab-pin").value
     let name = document.getElementById("lab-name").value
     let password = document.getElementById("lab-password").value
@@ -85,7 +87,7 @@ function createRoomRequest(pin, name, password){
 
     request.addEventListener('load', function(event) {
         // Just in case a student tries to post an announcement with an invalid password
-        if(event.target.status !== 200) 
+        if(event.target.status !== 200)
         {
             let msg = event.target.response
             alert(msg)
@@ -125,10 +127,10 @@ openLabCreatorButton.addEventListener('click', openLabCreatorModule)
 
 
 function openLabCreatorModule(){
-    
+
     // Hide the error text if there was any
     hideCreateLabError()
-    
+
     // Unhide modal by removing 'hidden' class
     document.getElementById('create-backdrop').classList.remove('hidden');
     document.getElementById('create-lab').classList.remove('hidden');
