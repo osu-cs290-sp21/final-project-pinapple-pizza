@@ -1,24 +1,28 @@
 {{!-- {{
-    
+
     Landing page view template.
 
     Here is where TA's will go to create a lab and students will join their labs from.
 
 }} --}}
 
+<!--mel 6/6:
+    - moved elements and added <p/> for ease and consistency of styling-->
+
 <script src="/js/createJoinLab.js" defer></script>
 
 <main class="create-join-lab-page">
-    
+
     <div class="title-container">
         <h1>Join a Lab</h1>
     </div>
 
 
     <article id="join-lab-module">
+
         <div id="join-lab-input-field">
 
-            {{!-- {{ 
+            {{!-- {{
                 "required" makes it so I can see if there is any text in the input field. It sets the "valid" attribute in CSS.
                 I use this to move the placeholder text upwards when there is text in the field. - Aaron
             }} --}}
@@ -28,17 +32,15 @@
 
         <button type="button" id="join-lab-button">Join</button>
 
+        <p/> <!--because this makes the buttons have a spave btwn them-->
 
-        
-        <p class="contents-centered hidden" id="invalid-pin">Invalid room id. Please try again.</p>
+        <div class="contents-centered">
+          <button type="button" id="create-lab-open-button">Create a Lab</button>
+        </div>
 
+          <p class="contents-centered hidden" id="invalid-pin">Invalid room id. Please try again.</p>
     </article>
 
-    <div class="contents-centered">
-        <button type="button" id="create-lab-open-button">Create</button>
-    </div>
-
     {{> createLabModal}}
-    
 
 </main>

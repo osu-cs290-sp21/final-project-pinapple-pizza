@@ -1,40 +1,35 @@
+<!--mel 6/6:
+    - removed 'x' button to keep consistent with question modal
+    - changed some class names for consistency in styling-->
+
+
+
 <div id="create-announcement-backdrop" class="hidden"></div>
 <div id="create-announcement" class="hidden">
   <div class="create-post-header">
     <h3>Post an Announcement</h3>
-    <button type="button" class="announcement-modal-close-button">&times;</button>
+    <!--<button type="button" class="announcement-modal-close-button">&times;</button>-->
   </div>
 
   <div class="modal-body">
     <div class="announcement-input-element">
-      <!--<label for="announcement-text-input">Announcement</label>-->
-      <!--6/3<p id="question-text-label">Announcement</p>-->
-      <!--6/3<textarea id="announcement-text-input" placeholder="Your announcement"></textarea>-->
-
       <input type="text" id="announcement-text-input" required/>
       <label id="announcement-text-label">Announcement</label>
     </div>
 
     <div class="announcement-input-element">
-      <!--<label for="announcement-author-input">Name</label>-->
-      <!--6/3<p id="question-name-label">Name</p>-->
-      <!--6/3<input type="text" id="announcement-author-input" placeholder="Your full name">-->
-
       <input type="text" id="announcement-author-input" required/>
       <label id="announcement-author-label">Name</label>
     </div>
 
     <div class="announcement-input-element">
-      <!--<label for="announcement-password-input">Secret TA password</label>-->
-      <!--<p id="question-name-label">Secret TA password</p>
-      <input type="text" id="announcement-password-input" placeholder="Password">-->
-
       <input type="text" id="announcement-password-input" required/>
       <label id="announcement-password-label">TA Password</label>
     </div>
   </div>
 
   <div class="modal-footer">
+
     <button type="button" class="announcement-modal-cancel-button">Cancel</button>
     <button type="button" class="announcement-modal-accept-button">Post</button>
   </div>
