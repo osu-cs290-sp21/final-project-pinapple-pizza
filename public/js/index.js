@@ -1,3 +1,7 @@
+// mel 6/6:
+//    - commented out functionality for 'x' button on announcement modal; 'x' button was removed 
+
+
 //Removes .hidden class from all elements
 function unHideQuestionModal()
 {
@@ -42,7 +46,7 @@ function createPostRequest(jsonObj, route, callback)
             let msg = event.target.response
             alert("Access denied: " + msg)
         }
-        else if(event.target.status !== 200) 
+        else if(event.target.status !== 200)
         {
             let msg = event.target.response
             alert("Error storing request in database: " + msg)
@@ -70,12 +74,12 @@ function handlePostQuestion()
     let textValue = document.getElementById('question-text-input').value
     let nameValue = document.getElementById('question-name-input').value
 
-    if (textValue && nameValue) 
+    if (textValue && nameValue)
     {
         //REPLACE ROOM w/NAME
         createPostRequest({questionText: textValue, questionName: nameValue, roomID: getRoomID()}, "/question/add", function (){
             clearAndHideQuestion()
-            
+
             //Update UI
             questionHTML = Handlebars.templates.question({text: textValue, name: nameValue})
             questionContainer = document.querySelector('.questions .post-container')
@@ -97,6 +101,8 @@ modalBack.addEventListener('click', clearAndHideQuestion)
 
 let postButton = document.getElementById('question-post')
 postButton.addEventListener('click', handlePostQuestion)
+
+
 
 
 // Announcement modal things
@@ -122,7 +128,7 @@ function postAnnouncement() {
     let authorValue = document.getElementById('announcement-author-input').value;
     let passwordValue = document.getElementById('announcement-author-input').value;
 
-    if (textValue && authorValue && passwordValue) 
+    if (textValue && authorValue && passwordValue)
     {
         // TODO: room name
         createPostRequest({announcementText: textValue, announcementAuthor: authorValue, taPassword: passwordValue, roomID: getRoomID()}, '/announcements/add', function() {
@@ -135,8 +141,9 @@ function postAnnouncement() {
 let createAnnouncementButton = document.getElementById('add-announcement');
 createAnnouncementButton.addEventListener('click', unHideAnnouncementModal);
 
-let closeAnnouncementButton = document.querySelector('.announcement-modal-close-button');
-closeAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);
+// mel 6/6: comment out next two lines
+//let closeAnnouncementButton = document.querySelector('.announcement-modal-close-button');
+//closeAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);
 
 let cancelAnnouncementButton = document.querySelector('.announcement-modal-cancel-button');
 cancelAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);

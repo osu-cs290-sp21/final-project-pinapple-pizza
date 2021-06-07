@@ -1,3 +1,6 @@
+// mel 6/6:
+//    - added to function renderQuestionsAnnouncements() to provide roomID and roomName in rendering the specified lab page
+
 const express = require('express');
 require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient
@@ -20,11 +23,13 @@ app.use(express.json())
 async function renderQuestionsAnnouncements(req, res, next) {
   let questions = db.collection('questions').find({roomID: req.params.roomID}).toArray()
   let announcements = db.collection('announcements').find({roomID: req.params.roomID}).toArray()
+  let roomNameServer = await db.collection('rooms').find({roomID: req.params.roomID}).next();
 
   res.status(200).render('home', {
-     announcementArray: await announcements, questionsArray: await questions,
+     announcementArray: await announcements,
+     questionsArray: await questions,
      roomIdHome: req.params.roomID,
-     roomNameHome: 'something'
+     roomNameHome: roomNameServer.roomName
    })
 }
 

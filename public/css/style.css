@@ -5,6 +5,17 @@
     font: Nanum Gothic
 */
 
+
+/* mel 6/6:
+    - match 'create a lab' button to 'join' button on 'join a lab' page
+    - matched 'create a lab' modal styling to announcement&question modal
+    - cleaned up announcement modal and matched it to question modal
+    - standardized post sizes
+    TODO:
+    - move plus buttons to spots that look less weird
+*/
+
+
 /* MAIN */
 body {
   font-family: 'Nanum Gothic', sans-serif;
@@ -119,13 +130,13 @@ a {
 
 /* QUESTION */
 .post {
-  min-width: 256px;
+  min-width: 300px;
+  max-width: 300px;
   display: inline;
   margin: 5px;
   padding: 20px;
   border-right: 3px solid #f0f0f0;
   border-radius: 2px;
-  /*background-color: #fff;*/
   position: relative;
 }
 
@@ -140,6 +151,8 @@ a {
 .author {
   text-align: right;
   font-weight: bold;
+  bottom: 10px;
+  position: relative;
 }
 
 
@@ -158,7 +171,10 @@ a {
     background-color: #000000d9;
 }
 
-#create-question,#create-announcement {
+#create-question,
+#create-announcement,
+#create-lab,
+#create-queue {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -190,81 +206,66 @@ a {
     width: 100%;
 }
 
-/* Take this out? */
-.create-question-input input,
-.create-question-input textarea,
-.announcement-input-element input,
-.announcement-input-element textarea {
-/*  padding: 8px 0;
-  font-size: 20px;
-  border: 2px solid #eb4d8a;
-  border-radius: 1px;
-  margin-bottom: 2%;*/
-}
-
-/*
-.create-question-input textarea,
-.announcement-input-element textarea {
-    resize: none;
-}*/
-
-.announcement-input-element {
-  /*display: flex;
-  align-items: center;*/
-  margin: auto;
-  width: 100%;
-  padding: 10px;
-  position: relative;
-  line-height: 44px;
-}
-
 .modal-footer {
     position: relative;
     width: 80%;
     margin: 0 auto;
 }
 
-#question-cancel,
-#question-post,
-#announcement-modal-cancel-button,
-#announcement-modal-accept-button {
+#create-lab-cancel-button,
+#create-lab-create-button {
     color: white;
     background-color: #eb4d8a;
-    /*margin: 20px;*/
     margin: 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
     justify-content: center;
-    /*text-align: center;*/
     text-align: left;
     text-decoration: none;
-    /*font-size: 16px;*/
     font-size: 24px;
     cursor: pointer;
-    /*below is new too*/
     width: 50%;
     display: flex;
-    /*align-items: center;*/
     align-items: left;
 }
-/*
-#question-text-label,
-#question-name-label {
-    color: #eb4d8a;
-    position: relative;
-    background-color: white;
-    padding: 0 5px;
+
+#question-cancel,
+#question-post {
+    color: white;
+    background-color: #eb4d8a;
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    justify-content: center;
+    text-align: left;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+    width: 50%;
+    display: flex;
+    align-items: left;
 }
-#question-text-label {
-    top: 32px;
-    left: 75px;
+
+.announcement-modal-cancel-button,
+.announcement-modal-accept-button {
+    color: white;
+    background-color: #eb4d8a;
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    justify-content: center;
+    text-align: left;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+    width: 50%;
+    display: flex;
+    align-items: left;
 }
-#question-name-label {
-    top: 112px;
-    left: 75px;
-}
-*/
+
 
 #lab-id-label,
 #lab-name-label,
@@ -278,24 +279,8 @@ a {
   width:fit-content;
 }
 
-#create-lab {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1010;
-  width: auto;
-  max-width: 600px;
-  min-width: 350px;
-  padding-bottom: 100px;
-  height: fit-content;
-  margin: 40px auto;
-  background-color: #fff;
-}
-
 .create-question-input input,
-.create-question-input textarea {
+.announcement-input-element input {
   padding: 8px 0;
   font-size: 20px;
   border: 2px solid #eb4d8a;
@@ -304,17 +289,15 @@ a {
   width: 100%;
 }
 
-.create-question-input textarea {
-    resize: none;
-}
+
 
 /*
 * Join lab input. Hover effect adapted from Enrico Mattiazzi
 * https://codepen.io/ettzzi/pen/ZWgWKw
 */
+
 #join-lab-module {
   margin: auto;
-
   margin-top: +40px;
   width: 50%;
   padding: 10px;
@@ -331,6 +314,20 @@ a {
 #join-lab-label {
   line-height: 6px;
   position: absolute;
+  top: 32px;
+  left: 10px;
+  width: 100%;
+  color: #d3d3d3;
+  transition: 0.2s all;
+  cursor: text;
+}
+
+
+#lab-id-label,
+#lab-name-label,
+#lab-password-label {
+  line-height: 6px;
+  position: sticky; /*static; relative; absolute;*/
   top: 32px;
   left: 10px;
   width: 100%;
@@ -373,6 +370,7 @@ a {
   box-shadow: none;
   color: #111;
 }
+
 
 #announcement-text-input,
 #announcement-author-input,
@@ -422,6 +420,38 @@ a {
   top: 0px;
   color: #eb4d8a;
 }
+
+#lab-id-label:hover,
+#question-text-input:valid~#lab-id-label,
+#question-text-input:hover~#lab-id-label,
+#question-text-input:focus~#lab-id-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#lab-name-label:hover,
+#question-text-input:valid~#lab-name-label,
+#question-text-input:hover~#lab-name-label,
+#question-text-input:focus~#lab-name-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#lab-password-label:hover,
+#question-text-input:valid~#lab-password-label,
+#question-text-input:hover~#lab-password-label,
+#question-text-input:focus~#lab-password-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+
 
 #announcement-text-label:hover,
 #announcement-text-input:valid~#announcement-text-label,
@@ -478,7 +508,7 @@ a {
 * question module. Maybe we make a global class? - Aaron
 */
 
-
+#create-lab-open-button,
 #join-lab-button {
   color: white;
   background-color: #eb4d8a;
@@ -493,7 +523,9 @@ a {
   width: 50%;
   display: flex;
   align-items: center;
+
 }
+
 
 /* When your join pin is invalid */
 #invalid-pin, #invalid-create-lab{
@@ -502,34 +534,6 @@ a {
 
 .contents-centered{
   text-align: center;
-}
-
-
-/* Button for opening lab creator module */
-#create-lab-open-button{
-  text-align: center;
-  color:#eb4d8a;
-  width: 150px;
-  font-size: 48px;
-  border: none;
-  cursor: pointer;
-  margin-top: 400px;
-}
-
-
-#create-lab-create-button, #create-lab-cancel-button{
-  color: white;
-  background-color: #eb4d8a;
-
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-
-  cursor: pointer;
 }
 
 
