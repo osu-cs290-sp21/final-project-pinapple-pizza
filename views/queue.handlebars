@@ -16,16 +16,21 @@
     <h2 class="section-label-title">Queue</h2>
     <button type="button" id="add-queue"><i class="fas fa-plus"></i></button>
     <table class="queue-list">
-        <tr class="table-header">
-            <th>Position in Queue</th>
-            <th class="name-cell">Name</th>
-            <th>Breakout Room Number</th>
-            <th>Request Type</th>
-        </tr>
-        {{#each people}}
-            {{> queueEntry}}
-        {{/each}}
+        <tbody>
+            <tr class="table-header">
+                <th>Position in Queue</th>
+                <th class="name-cell">Name</th>
+                <th>Breakout Room Number</th>
+                <th>Request Type</th>
+                {{#if password}}<th class="password-container" password="{{password}}">Remove</th>{{/if}}
+            </tr>
+            {{#each people}}
+                {{> queueEntry password=../password}}
+            {{/each}}
+        </tbody>
     </table>
 
 </main>
 {{> addToQueueModal}}
+
+<script src="/js/queue.js" defer></script>
