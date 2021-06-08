@@ -91,5 +91,7 @@ postQueueButton.addEventListener('click', postQueue);
 let addToQueueButton = document.getElementById('add-queue');
 addToQueueButton.addEventListener('click', unHideQueueModal);
 
+let taSignInButton = document.getElementById('ta-signin');
+taSignInButton.addEventListener('click', function() {location.href = 'queue/ta';});
 
 setInterval(updateQueue, UPDATE_INTERVAL);
