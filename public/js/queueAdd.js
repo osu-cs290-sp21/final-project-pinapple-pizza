@@ -9,38 +9,41 @@ function unHideQueueModal()
 {
     console.log("Show modals called")
 
-    document.getElementById('create-backdrop').classList.remove('hidden');
+    document.getElementById('create-queue-backdrop').classList.remove('hidden');
     document.getElementById('create-queue').classList.remove('hidden');
 }
 
 
-function hideModals()
+function hideQueueModals()
 {
     console.log("Hide modals called")
 
-    document.getElementById('create-backdrop').classList.add('hidden')
+    document.getElementById('create-queue-backdrop').classList.add('hidden')
     document.getElementById('create-queue').classList.add('hidden')
 }
 
 
-function clearAndHideQuestion()
+function clearAndHideQueue()
 {
-    // You should also set the values of the inputs to '' or null
+    hideQueueModals()
 
-    hideModals()
+    let nameInput = document.getElementById('queue-name-input')
+    let roomInput = document.getElementById('room-number-input')
+    roomInput.value = ''
+    nameInput.value = ''
 }
 
-function postQuestion(){
+function postQueue(){
 
-    clearAndHideQuestion()
+    clearAndHideQueue()
 
 
     // insert DOM queries here to retrieve values
-    let roomNumber = 
-    let name =
+//    let roomNumber =
+//    let name =
 
     // Set this to string values: "Checkoff", or "Question" depending on which was selected
-    let reqType = 
+//    let reqType =
 
     let path = window.location.pathname
 
@@ -83,12 +86,12 @@ function postQuestion(){
     request.send(requestBody)
 }
 
+// Add-to-Queue modal pops up
+let addToQueueButton = document.getElementById('add-queue')
+addToQueueButton.addEventListener('click',unHideQueueModal)
 
+// post button in modal
+document.getElementById('queue-post').addEventListener('click', postQueue)
 
-
-
-
-
-
-document.getElementById('add-queue').addEventListener('click', postQuestion)
-document.getElementById('question-cancel').addEventListener('click', clearAndHideQuestion)
+// cancel button in modal
+document.getElementById('queue-cancel').addEventListener('click', clearAndHideQueue)

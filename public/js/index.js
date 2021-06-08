@@ -1,5 +1,5 @@
 // mel 6/6:
-//    - commented out functionality for 'x' button on announcement modal; 'x' button was removed 
+//    - commented out functionality for 'x' button on announcement modal; 'x' button was removed
 
 
 //Removes .hidden class from all elements
