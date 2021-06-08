@@ -63,8 +63,10 @@ function clearAndHideQueue() {
 function postQueue() {
     let name = document.getElementById('queue-name-input').value;
     let roomNumber = document.getElementById('room-number-input').value;
+
     let question = document.getElementById('request-type-question').checked;
     let checkoff = document.getElementById('request-type-checkoff').checked;
+
 
     if (name && roomNumber && (checkoff || question))
     {
@@ -79,8 +81,13 @@ function postQueue() {
 
 
 
+
+//let cancelQueueButton = document.getElementById('queue-cancel');
+//document.getElementById('queue-cancel').addEventListener('click', clearAndHideQueue);
+
 let cancelQueueButton = document.getElementById('queue-cancel');
 cancelQueueButton.addEventListener('click', clearAndHideQueue);
+
 
 let postQueueButton = document.getElementById('queue-post');
 postQueueButton.addEventListener('click', postQueue);
@@ -94,4 +101,7 @@ taSignInButton.addEventListener('click', function() {location.href = 'queue/ta';
 let addToQueueBack = document.getElementById('create-queue-backdrop');
 addToQueueBack.addEventListener('click', clearAndHideQueue);
 
+
+//setInterval(updateQueue, 30000);
 setInterval(updateQueue, UPDATE_INTERVAL);
+
