@@ -85,19 +85,26 @@ a {
 
 .title-container {
   margin: 0px;
+  padding: 5px;
+  background-color: white;
+  text-align: left;
+}
+
+.title-container-landing {
+  margin: 0px;
   margin-left: 20px;
   padding: 5px;
   background-color: white;
   text-align: left;
 }
 
-.title-container h3 {
+.title-container h3{
   margin: 10px 0;
   font-weight: normal;
   font-size: 25px;
 }
 
-.title-container h4 {
+.title-container h4{
   margin: 10px 0;
   font-weight: normal;
   font-size: 20px;
