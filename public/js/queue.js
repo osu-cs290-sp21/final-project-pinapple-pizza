@@ -89,4 +89,4 @@ let addToQueueButton = document.getElementById('add-queue');
 addToQueueButton.addEventListener('click', unHideQueueModal);
 
 
-setInterval(updateQueue(), 30000);
+setInterval(updateQueue, 30000);
