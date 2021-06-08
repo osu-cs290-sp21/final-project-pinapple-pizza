@@ -727,6 +727,31 @@ tr:nth-child(odd) {
   background-color: #f0f0f0;
 }
 
+.queue-title-container {
+  display: flex;
+  align-items: center;
+}
+
+#ta-signin {
+  color: white;
+  background-color: #eb4d8a;
+  margin-left: auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  justify-content: center;
+  text-align: left;
+  text-decoration: none;
+  font-size: large;
+  cursor: pointer;
+  display: flex;
+  align-items: left;
+}
+
+#add-queue {
+  margin-left: 10px;
+}
+
 .close-button-cell {
   text-align: center;
 }
