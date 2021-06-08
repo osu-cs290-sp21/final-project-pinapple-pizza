@@ -292,7 +292,7 @@ a {
 /*#lab-id-label,
 #lab-name-label,
 #lab-password-label*/
-.label-class {
+/*.label-class {
   color: #eb4d8a;
   position: relative;
   background-color: white;
@@ -300,6 +300,17 @@ a {
   top: 24px;
   left: 10px;
   width:fit-content;
+}*/
+
+.label-class {
+  line-height: 6px;
+  position: sticky;
+  top: 32px;
+  left: 10px;
+  width: 100%;
+  color: #d3d3d3;
+  transition: 0.2s all;
+  cursor: text;
 }
 
 .input-class {
@@ -310,6 +321,8 @@ a {
   margin-bottom: 2%;
   width: 100%;
 }
+
+
 
 .title-container h1 {
   padding-left: 20px;
@@ -346,16 +359,6 @@ a {
   cursor: text;
 }*/
 
-.label-class {
-  line-height: 6px;
-  position: sticky;
-  top: 32px;
-  left: 10px;
-  width: 100%;
-  color: #d3d3d3;
-  transition: 0.2s all;
-  cursor: text;
-}
 
 
 
