@@ -94,13 +94,13 @@ a {
   text-align: left;
 }
 
-/*.title-container-landing {
+.title-container-landing {
   margin: 0px;
   margin-left: 20px;
   padding: 5px;
   background-color: white;
   text-align: left;
-}*/
+}
 
 .title-container h3{
   margin: 10px 0;
