@@ -1,6 +1,3 @@
-// mel 6/6:
-//    - added to function renderQuestionsAnnouncements() to provide roomID and roomName in rendering the specified lab page
-
 const express = require('express');
 require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient

@@ -129,10 +129,6 @@ function updateQuestionsAndAnnouncements() {
 let createAnnouncementButton = document.getElementById('add-announcement');
 createAnnouncementButton.addEventListener('click', unHideAnnouncementModal);
 
-// mel 6/6: comment out next two lines
-//let closeAnnouncementButton = document.querySelector('.announcement-modal-close-button');
-//closeAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);
-
 let cancelAnnouncementButton = document.querySelector('.announcement-modal-cancel-button');
 cancelAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);
 
