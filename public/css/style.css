@@ -301,7 +301,9 @@ a {
   width: 100%;
 }
 
-
+.title-container h1 {
+  padding-left: 20px;
+}
 
 /*
 * Join lab input. Hover effect adapted from Enrico Mattiazzi
@@ -652,14 +654,22 @@ a {
 }
 
 table {
+  margin: auto;
+  margin-top: 20px;
+  border: 2px solid #ababab;
   border-collapse: collapse;
+  width: 100%;
 }
 
-table, th, td {
-  border: 2px solid #ababab;
+th:not(.name-cell), td:not(.name-cell) {
+  width:1%;
+  white-space:nowrap;
 }
 
 th, td {
+  font-size: large;
+  text-align: left;
+  border: 2px solid #ababab;
   padding: 0.5em;
 }
 
@@ -673,4 +683,20 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
   background-color: #f0f0f0;
+}
+
+/* 404 Page */
+.main-404-page {
+  margin: auto;
+  margin-top: 20px;
+}
+.main-404-page h1 {
+  margin: auto;
+  text-align: center;
+  font-size: 100px;
+}
+
+.main-404-page h3 {
+  margin: auto;
+  text-align: center;
 }

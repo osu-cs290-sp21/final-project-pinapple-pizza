@@ -9,21 +9,23 @@
 
 
 <main class="queue-page">
-    <h3>Your Lab Name: {{roomName}}</h3>
-    <h4>Room ID: {{roomID}} </h4>
+    <div class="title-container">
+        <h3>Your Lab Name: {{roomName}}</h3>
+        <h4>Room ID: {{roomID}} </h4>
+    </div>
     <h2 class="section-label-title">Queue</h2>
     <button type="button" id="add-queue"><i class="fas fa-plus"></i></button>
     <table class="queue-list">
         <tr>
             <th>Position in Queue</th>
-            <th>Name</th>
+            <th class="name-cell">Name</th>
             <th>Breakout Room Number</th>
             <th>Request Type</th>
         </tr>
         {{#each people}}
             <tr>
                 <td>{{position}}</td>
-                <td>{{name}}</td>
+                <td class="name-cell">{{name}}</td>
                 <td>{{roomNumber}}</td>
                 <td>{{reqType}}</td>
             </tr>

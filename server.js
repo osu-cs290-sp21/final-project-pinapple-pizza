@@ -132,6 +132,19 @@ app.get('/questions', function(req, res, next) {
 //Handle POSTS to add announcements
 //{announcementText: textValue, announcementAuthor: authorValue, taPassword: passwordValue, roomName: 'room1'}
 app.post('/announcements/add', function(req, res, next) {
+   // First, make sure the password is correct
+   db.collection("rooms").findOne({roomID: req.body.roomID})
+      .then(function(result) {
+         if (!result) {
+            let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, password: req.body.roomPassword, people: []}
+            //Add to DB
+            db.collection("rooms").insertOne(roomObj).then(function(){
+               res.status(200).send("Successfully created room!")
+            })
+         } else {
+            res.status(400).send("Error. Room already exists!")
+         }
+      })
    // TODO: make this actually work
    res.status(403).send('Invalid password!')
 })
@@ -200,6 +213,7 @@ app.put('/:roomID/queue/add', function(req, res, next) {
 
 //Update queue by removing 1st person
 app.put('/:roomID/queue/remove', function(req, res, next) {
+   // TODO: Check auth
    if(req.params.roomID)
    {
       //Make sure room exists first
@@ -222,7 +236,11 @@ app.put('/:roomID/queue/remove', function(req, res, next) {
 app.get('/:roomID/queue', function(req, res, next) {
    db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
       if(result) {
-         context = {people: result["people"], roomID: req.params.roomID, roomName: result["roomName"]}
+         let people = result["people"];
+         for (let i = 0; i < people.length; i++) {
+            people[i].position = i + 1;
+         }
+         context = {people: people, roomID: req.params.roomID, roomName: result["roomName"]}
          res.status(200).render('queue', context)
       } else {
          res.status(400).send("Room does not exist!")
@@ -276,7 +294,7 @@ app.get('/:roomID/queue', function(req, res, next) {
 app.get('*', function(req, res, next) {
    // TODO: change this to an actual 404 page
    console.log(req.url);
-   res.status(404).send("404");
+   res.status(404).render('404');
 });
 
 let port = process.env.PORT || 3000;
