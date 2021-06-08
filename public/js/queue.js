@@ -104,6 +104,5 @@ addToQueueBack.addEventListener('click', clearAndHideQueue);
 
 
 //setInterval(updateQueue, 30000);
-=======
 setInterval(updateQueue, UPDATE_INTERVAL);
 
