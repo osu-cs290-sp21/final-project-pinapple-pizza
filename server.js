@@ -129,6 +129,38 @@ app.get('/questions', function(req, res, next) {
    });
 });
 
+// Endpoint to retrieve all data corresponding to a room
+app.get('/:roomID/all-data', function(req, res, next) {
+   // Get questions
+   let questionsCursor = db.collection('questions').find({
+      roomID: req.params.roomID
+   });
+
+   questionsCursor.toArray().then(function(questions) {
+      // Get announcements
+      let announcementsCursor = db.collection('announcements').find({
+         roomID: req.params.roomID
+      });
+
+      announcementsCursor.toArray().then(function(announcements) {
+         // Get queueEntries
+         db.collection('rooms').findOne({roomID: req.params.roomID}).then(function(room) {
+            let people = room["people"];
+            for (let i = 0; i < people.length; i++) {
+               people[i].position = i + 1;
+            }
+            res.status(200).send(JSON.stringify(
+               {
+                  questions: questions,
+                  announcements: announcements,
+                  people: people
+               }
+            ));
+         });
+      });
+   });
+})
+
 //Handle POSTS to add announcements
 //{announcementText: textValue, announcementAuthor: authorValue, taPassword: passwordValue, roomName: 'room1'}
 app.post('/announcements/add', function(req, res, next) {
