@@ -216,13 +216,15 @@ a {
     width: 90%
 }
 
-#question-text-input,
+/*#question-text-input,
 #announcement-text-input,
 #question-name-input,
 #announcement-author-input,
-#announcement-password-input {
+#announcement-password-input */
+.input-class {
     width: 100%;
 }
+
 
 .modal-footer {
     position: relative;
@@ -286,9 +288,11 @@ a {
     align-items: left;
 }
 
-#lab-id-label,
+
+/*#lab-id-label,
 #lab-name-label,
-#lab-password-label{
+#lab-password-label*/
+.label-class {
   color: #eb4d8a;
   position: relative;
   background-color: white;
@@ -298,10 +302,7 @@ a {
   width:fit-content;
 }
 
-/* ??? */
-.create-question-input input,
-.announcement-input-element input,
-.create-queue-input input {
+.input-class {
   padding: 8px 0;
   font-size: 20px;
   border: 2px solid #eb4d8a;
@@ -333,8 +334,8 @@ a {
   position: relative;
   line-height: 44px;
 }
-
-#join-lab-label {
+/*
+#join-lab-input {
   line-height: 6px;
   position: absolute;
   top: 32px;
@@ -343,14 +344,11 @@ a {
   color: #d3d3d3;
   transition: 0.2s all;
   cursor: text;
-}
+}*/
 
-
-#lab-id-label,
-#lab-name-label,
-#lab-password-label {
+.label-class {
   line-height: 6px;
-  position: sticky; /*static; relative; absolute;*/
+  position: sticky;
   top: 32px;
   left: 10px;
   width: 100%;
@@ -359,36 +357,11 @@ a {
   cursor: text;
 }
 
-#announcement-text-label,
-#announcement-author-label,
-#announcement-password-label {
-  line-height: 6px;
-  position: sticky; /*static; relative; absolute;*/
-  top: 32px;
-  left: 10px;
-  width: 100%;
-  color: #d3d3d3;
-  transition: 0.2s all;
-  cursor: text;
-}
-
-#question-text-label,
-#question-name-label ,
-#queue-name-label,
-#room-number-label {
-  line-height: 6px;
-  position: sticky; /*static; relative; absolute;*/
-  top: 32px;
-  left: 10px;
-  width: 100%;
-  color: #d3d3d3;
-  transition: 0.2s all;
-  cursor: text;
-}
 
 
 /* this is the pin input on the landing page */
-#join-lab-input {
+
+.input-class {
   width: 100%;
   border: 0;
   outline: 0;
@@ -398,52 +371,10 @@ a {
   color: #111;
 }
 
-
-#announcement-text-input,
-#announcement-author-input,
-#announcement-password-input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  padding: 0.5rem 0;
-  border-bottom: 2px solid #d3d3d3;
-  box-shadow: none;
-  color: #111;
-}
-
-#question-text-input,
-#question-name-input,
-#create-lab-pin-input,
-#create-lab-name-input,
-#create-lab-password-input,
-#announcement-text-input,
-#announcement-author-input,
-#announcement-password-input,
-#queue-name-input,
-#room-number-input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  padding: 0.5rem 0;
-  border-bottom: 2px solid #d3d3d3;
-  box-shadow: none;
-  color: #111;
-}
-
-#join-lab-input:focus {
+.input-class:focus {
   border-color: #eb4d8a;
 }
 
-#announcement-text-input:focus,
-#announcement-author-input:focus,
-#announcement-password-input:focus {
-  border-color: #eb4d8a;
-}
-
-#question-text-input:focus,
-#question-name-input:focus {
-  border-color: #eb4d8a;
-}
 
 #create-lab-pin-input:focus,
 #create-lab-name-input:focus,
@@ -452,17 +383,9 @@ a {
 }
 
 /* On hover, focus, or when there is text in the box, move the label up and turn pink. */
-#join-lab-label:hover,
-#join-lab-input:valid~#join-lab-label,
-#join-lab-input:hover~#join-lab-label,
-#join-lab-input:focus~#join-lab-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
 
-#lab-id-label:hover,
+
+/*#lab-id-label:hover,
 #create-lab-pin-input:valid~#lab-id-label,
 #create-lab-pin-input:hover~#lab-id-label,
 #create-lab-pin-input:focus~#lab-id-label
@@ -542,22 +465,13 @@ a {
   font-size: 24px;
   top: 0px;
   color: #eb4d8a;
-}
+}*/
 
-#queue-name-label:hover,
-#queue-name-input:valid~#queue-name-label,
-#queue-name-input:hover~#queue-name-label,
-#queue-name-input:focus~#queue-name-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
 
-#room-number-label:hover,
-#room-number-input:valid~#room-number-label,
-#room-number-input:hover~#room-number-label,
-#room-number-input:focus~#room-number-label
+.label-class:hover,
+.input-class:valid~.label-class,
+.input-class:hover~.label-class,
+.input-class:focus~.label-class
 {
   font-size: 24px;
   top: 0px;
@@ -565,7 +479,6 @@ a {
 }
 
 .selection-thing {
-
   justify-content: center;
 }
 
