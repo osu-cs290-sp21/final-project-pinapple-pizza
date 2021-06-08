@@ -361,6 +361,8 @@ a {
   cursor: text;
 }
 
+
+/* this is the pin input on the landing page */
 #join-lab-input {
   width: 100%;
   border: 0;
@@ -385,7 +387,10 @@ a {
 }
 
 #question-text-input,
-#question-name-input {
+#question-name-input,
+#create-lab-pin-input,
+#create-lab-name-input,
+#create-lab-password-input {
   width: 100%;
   border: 0;
   outline: 0;

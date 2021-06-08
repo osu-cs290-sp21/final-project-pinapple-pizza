@@ -58,9 +58,11 @@ function handleJoinLab(){
 // Send a post request with the proposed lab name, id, and password.
 function createLab(){
 
-    let pin = document.getElementById("lab-pin").value
-    let name = document.getElementById("lab-name").value
-    let password = document.getElementById("lab-password").value
+    let pin = document.getElementById("create-lab-pin-input").value
+    let name = document.getElementById("create-lab-name-input").value
+    let password = document.getElementById("create-lab-password-input").value
+
+    console.log("PIN: ", pin, " NAME: ", name, " PASSWORD: ", password)
 
 
     if(pin && name && password){
