@@ -101,7 +101,7 @@ app.post('/question/add', function(req, res, next) {
       db.collection("rooms").findOne({roomID: req.body.roomID})
       .then(function(result) {
          if (result) {
-            let questionObj = {text: req.body.questionText, name: req.body.questionName, roomID:req.body.roomID}
+            let questionObj = {text: req.body.questionText, name: req.body.questionName, roomID: req.body.roomID}
             //Add to DB
             db.collection("questions").insertOne(questionObj)
             .then(function() {
@@ -192,14 +192,14 @@ app.post('/rooms/create', function(req, res, next) {
 
 //Update queue by adding person
 app.put('/:roomID/queue/add', function(req, res, next) {
-   if(req.body && req.body.position && req.body.name &&
+   if(req.body && req.body.name &&
       req.body.roomNumber && req.body.reqType && req.params.roomID)
    {
       //Make sure room exists first
       db.collection("rooms").findOne({roomID: req.params.roomID})
       .then(function(result){
          if(result) {
-            let personObj = {position: req.body.position, name: req.body.name,
+            let personObj = { name: req.body.name,
                roomNumber: req.body.roomNumber, reqType: req.body.reqType}
 
             //Add to DB

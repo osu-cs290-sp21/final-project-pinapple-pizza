@@ -13,10 +13,8 @@ function goToLab(pin){
 
 // JOINING LABS //
 
-let joinButton = document.getElementById('join-lab-button')
-joinButton.addEventListener('click', handleJoinLab)
+document.getElementById('join-lab-button').addEventListener('click', handleJoinLab)
 
-let invalidPinText = document.getElementById('invalid-pin')
 
 
 // Send a join lab request with entered pin.
@@ -44,7 +42,7 @@ function handleJoinLab(){
         else
         {
             // Show invalid pin error message.
-            invalidPinText.classList.remove('hidden')
+            document.getElementById('invalid-pin').classList.remove('hidden')
         }
     })
 
@@ -124,8 +122,7 @@ function hideCreateLabError(){
 }
 
 
-let openLabCreatorButton = document.getElementById('create-lab-open-button')
-openLabCreatorButton.addEventListener('click', openLabCreatorModule)
+document.getElementById('create-lab-open-button').addEventListener('click', openLabCreatorModule)
 
 
 function openLabCreatorModule(){
@@ -150,14 +147,6 @@ function closeLabCreatorModule(){
 
 
 
-let createLabCreateButton = document.getElementById('create-lab-create-button')
-createLabCreateButton.addEventListener('click', createLab)
-
-
-
-let createLabCancelButton = document.getElementById('create-lab-cancel-button')
-createLabCancelButton.addEventListener('click', closeLabCreatorModule)
-
-
-let createLabBackdrop = document.getElementById('create-backdrop')
-createLabBackdrop.addEventListener('click', closeLabCreatorModule)
+document.getElementById('create-lab-create-button').addEventListener('click', createLab)
+document.getElementById('create-lab-cancel-button').addEventListener('click', closeLabCreatorModule)
+document.getElementById('create-backdrop').addEventListener('click', closeLabCreatorModule)
