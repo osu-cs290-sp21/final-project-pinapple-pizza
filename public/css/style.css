@@ -293,7 +293,9 @@ a {
   width: 100%;
 }
 
-
+.title-container h1 {
+  padding-left: 20px;
+}
 
 /*
 * Join lab input. Hover effect adapted from Enrico Mattiazzi
@@ -640,6 +642,12 @@ a {
 
 table {
   border-collapse: collapse;
+  width: 100%;
+}
+
+th:not(.name-cell), td:not(.name-cell) {
+  width:1%;
+  white-space:nowrap;
 }
 
 table, th, td {
