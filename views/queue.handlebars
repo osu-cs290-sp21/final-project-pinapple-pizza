@@ -9,9 +9,10 @@
 
 
 <main class="queue-page">
-    <h1>Queue</h1>
-    <h3>Room ID: {{roomID}}</h3>
-    <h3>Room Name: {{roomName}}</h3>
+    <h3>Your Lab Name: {{roomName}}</h3>
+    <h4>Room ID: {{roomID}} </h4>
+    <h2 class="section-label-title">Queue</h2>
+    <button type="button" id="add-queue"><i class="fas fa-plus"></i></button>
     <table class="queue-list">
         <tr>
             <th>Position in Queue</th>
@@ -28,7 +29,6 @@
             </tr>
         {{/each}}
     </table>
-    <button type="button" id="add-queue"><i class="fas fa-plus"></i></button>
 
 </main>
 {{> addToQueueModal}}

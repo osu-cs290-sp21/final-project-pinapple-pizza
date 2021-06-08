@@ -23,6 +23,10 @@ body {
   background-color: white;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
 /* HEADER */
 header {
   background-color: #222222;
@@ -88,19 +92,19 @@ a {
 
 .title-container h3 {
   margin: 10px 0;
-  font-weight: 800;
+  font-weight: normal;
   font-size: 25px;
 }
 
 .title-container h4 {
   margin: 10px 0;
-  font-weight: 600;
+  font-weight: normal;
   font-size: 20px;
 }
 
 .section-label-title {
   display: inline-block;
-  font-weight: 600;
+  font-weight: normal;
   /*border-bottom: 8px solid #f0f0f0;*/
   border-bottom: 2px solid #d3d3d3;
   margin: 10px 0;
@@ -110,7 +114,7 @@ a {
   display: block;
 }
 
-#add-question, #add-announcement {
+#add-question, #add-announcement, #add-queue {
   position: static;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 100%;
@@ -122,7 +126,7 @@ a {
   padding: 10px;
 }
 
-#add-question:hover, #add-announcement:hover {
+#add-question:hover, #add-announcement:hover, #add-queue {
     font-size: 10px;
     cursor: pointer;
 }
@@ -338,7 +342,7 @@ a {
 
 #announcement-text-label,
 #announcement-author-label,
-#announcement-author-label {
+#announcement-password-label {
   line-height: 6px;
   position: sticky; /*static; relative; absolute;*/
   top: 32px;
@@ -627,4 +631,33 @@ a {
   color: white;
   padding: 10px;
   float: right;
+}
+
+/* queue.handlebars */
+.queue-page {
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 2px solid #ababab;
+}
+
+th, td {
+  padding: 0.5em;
+}
+
+th {
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #c0c0c0;
+}
+
+tr:nth-child(odd) {
+  background-color: #f0f0f0;
 }
