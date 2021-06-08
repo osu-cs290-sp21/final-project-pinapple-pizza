@@ -8,10 +8,10 @@ templates['question'] = template({"compiler":[8,">= 4.3.0"],"main":function(cont
         return undefined
     };
 
-  return "<article class=\"post\">\n    <div class=\"question-content\">\n        <p class=\"content\">\n            "
+  return "<article class=\"post\">\r\n    <div class=\"question-content\">\r\n        <p class=\"content\">\r\n            "
     + alias4(((helper = (helper = lookupProperty(helpers,"text") || (depth0 != null ? lookupProperty(depth0,"text") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"text","hash":{},"data":data,"loc":{"start":{"line":4,"column":12},"end":{"line":4,"column":20}}}) : helper)))
-    + "\n        </p>\n        <p class=\"author\">\n            "
+    + "\r\n        </p>\r\n        <p class=\"author\">\r\n            "
     + alias4(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":7,"column":12},"end":{"line":7,"column":20}}}) : helper)))
-    + "\n        </p>\n    </div>\n</article>";
+    + "\r\n        </p>\r\n    </div>\r\n</article>";
 },"useData":true});
 })();

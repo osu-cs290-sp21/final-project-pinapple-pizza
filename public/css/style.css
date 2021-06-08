@@ -90,29 +90,29 @@ a {
   text-align: left;
 }
 
-.title-container-landing {
+/*.title-container-landing {
   margin: 0px;
   margin-left: 20px;
   padding: 5px;
   background-color: white;
   text-align: left;
-}
+}*/
 
 .title-container h3{
   margin: 10px 0;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 25px;
 }
 
 .title-container h4{
   margin: 10px 0;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 20px;
 }
 
 .section-label-title {
   display: inline-block;
-  font-weight: normal;
+  font-weight: bold;
   /*border-bottom: 8px solid #f0f0f0;*/
   border-bottom: 2px solid #d3d3d3;
   margin: 10px 0;
@@ -173,7 +173,9 @@ a {
     display: None;
 }
 
-#create-backdrop,#create-announcement-backdrop {
+#create-backdrop,
+#create-announcement-backdrop,
+#create-queue-backdrop {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -243,7 +245,9 @@ a {
 }
 
 #question-cancel,
-#question-post {
+#queue-cancel,
+#question-post,
+#queue-post {
     color: white;
     background-color: #eb4d8a;
     margin: 10px;
@@ -291,8 +295,10 @@ a {
   width:fit-content;
 }
 
+/* ??? */
 .create-question-input input,
-.announcement-input-element input {
+.announcement-input-element input,
+.create-queue-input input {
   padding: 8px 0;
   font-size: 20px;
   border: 2px solid #eb4d8a;
@@ -364,7 +370,9 @@ a {
 }
 
 #question-text-label,
-#question-name-label {
+#question-name-label ,
+#queue-name-label,
+#room-number-label {
   line-height: 6px;
   position: sticky; /*static; relative; absolute;*/
   top: 32px;
@@ -404,7 +412,12 @@ a {
 #question-name-input,
 #create-lab-pin-input,
 #create-lab-name-input,
-#create-lab-password-input {
+#create-lab-password-input,
+#announcement-text-input,
+#announcement-author-input,
+#announcement-password-input,
+#queue-name-input,
+#room-number-input {
   width: 100%;
   border: 0;
   outline: 0;
@@ -520,6 +533,31 @@ a {
   font-size: 24px;
   top: 0px;
   color: #eb4d8a;
+}
+
+#queue-name-label:hover,
+#queue-name-input:valid~#queue-name-label,
+#queue-name-input:hover~#queue-name-label,
+#queue-name-input:focus~#queue-name-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#room-number-label:hover,
+#room-number-input:valid~#room-number-label,
+#room-number-input:hover~#room-number-label,
+#room-number-input:focus~#room-number-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+.selection-thing {
+
+  justify-content: center;
 }
 
 /*

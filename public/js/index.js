@@ -1,5 +1,5 @@
 // mel 6/6:
-//    - commented out functionality for 'x' button on announcement modal; 'x' button was removed 
+//    - commented out functionality for 'x' button on announcement modal; 'x' button was removed
 
 // Number of milliseconds to wait before refreshing questions/announcements/queue
 const UPDATE_INTERVAL = 5000;
