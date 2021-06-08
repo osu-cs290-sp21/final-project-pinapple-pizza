@@ -126,12 +126,12 @@ function postAnnouncement() {
     // TODO add authorization check
     let textValue = document.getElementById('announcement-text-input').value;
     let authorValue = document.getElementById('announcement-author-input').value;
-    let passwordValue = document.getElementById('announcement-author-input').value;
+    let passwordValue = document.getElementById('announcement-password-input').value;
 
     if (textValue && authorValue && passwordValue)
     {
         // TODO: room name
-        createPostRequest({announcementText: textValue, announcementAuthor: authorValue, taPassword: passwordValue, roomID: getRoomID()}, '/announcements/add', function() {
+        createPostRequest({announcementText: textValue, announcementAuthor: authorValue, password: passwordValue, roomID: getRoomID()}, '/announcements/add', function() {
             clearAndHideAnnouncement();
         });
     }
