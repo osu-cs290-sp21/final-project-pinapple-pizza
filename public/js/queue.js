@@ -46,7 +46,7 @@ function queueRemoveClicked(index, password) {
 // Queue modal things
 function unHideQueueModal() {
     //Unhide modal by removing 'hidden' class
-    document.getElementById('create-backdrop').classList.remove('hidden');
+    document.getElementById('create-queue-backdrop').classList.remove('hidden');
     document.getElementById('create-queue').classList.remove('hidden');
 }
 
@@ -56,7 +56,7 @@ function clearAndHideQueue() {
     document.getElementById('request-type-question').value = false;
     document.getElementById('request-type-checkoff').value = false;
 
-    document.getElementById('create-backdrop').classList.add('hidden');
+    document.getElementById('create-queue-backdrop').classList.add('hidden');
     document.getElementById('create-queue').classList.add('hidden');
 }
 
@@ -65,7 +65,7 @@ function postQueue() {
     let roomNumber = document.getElementById('room-number-input').value;
     let question = document.getElementById('request-type-question').value;
     let checkoff = document.getElementById('request-type-checkoff').value;
-    
+
 
     if (name && roomNumber)
     {
@@ -79,10 +79,10 @@ function postQueue() {
 
 
 
-let cancelQueueButton = document.getElementById('question-cancel');
-cancelQueueButton.addEventListener('click', clearAndHideQueue);
+//let cancelQueueButton = document.getElementById('queue-cancel');
+document.getElementById('queue-cancel').addEventListener('click', clearAndHideQueue);
 
-let postQueueButton = document.getElementById('question-post');
+let postQueueButton = document.getElementById('queue-post');
 postQueueButton.addEventListener('click', postQueue);
 
 let addToQueueButton = document.getElementById('add-queue');

@@ -1,19 +1,13 @@
-// mel 6/6:
-//    - entirely new page, for adding modal functionality to queue page
-//    TODO:
-//    - make this work somehow
 
-
-
-function unHideQueueModal()
+/*function unHideQueueModal()
 {
     console.log("Show modals called")
 
     document.getElementById('create-queue-backdrop').classList.remove('hidden');
     document.getElementById('create-queue').classList.remove('hidden');
-}
+}*/
 
-
+/*
 function hideQueueModals()
 {
     console.log("Hide modals called")
@@ -32,7 +26,8 @@ function clearAndHideQueue()
     roomInput.value = ''
     nameInput.value = ''
 }
-
+*/
+/*
 function postQueue(){
 
     clearAndHideQueue()
@@ -85,7 +80,8 @@ function postQueue(){
     })
     request.send(requestBody)
 }
-
+*/
+/*
 // Add-to-Queue modal pops up
 let addToQueueButton = document.getElementById('add-queue')
 addToQueueButton.addEventListener('click',unHideQueueModal)
@@ -95,3 +91,4 @@ document.getElementById('queue-post').addEventListener('click', postQueue)
 
 // cancel button in modal
 document.getElementById('queue-cancel').addEventListener('click', clearAndHideQueue)
+*/
