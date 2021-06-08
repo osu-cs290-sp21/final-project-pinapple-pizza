@@ -53,9 +53,8 @@ function unHideQueueModal() {
 function clearAndHideQueue() {
     document.getElementById('queue-name-input').value = '';
     document.getElementById('room-number-input').value = '';
-    // TODO: Fix these, maybe use radio buttons instead of checkboxes? or a dropdown
-    document.getElementById('request-type-question').value = false;
-    document.getElementById('request-type-checkoff').value = false;
+    document.getElementById('request-type-question').checked = false;
+    document.getElementById('request-type-checkoff').checked = false;
 
     document.getElementById('create-queue-backdrop').classList.add('hidden');
     document.getElementById('create-queue').classList.add('hidden');
@@ -64,12 +63,10 @@ function clearAndHideQueue() {
 function postQueue() {
     let name = document.getElementById('queue-name-input').value;
     let roomNumber = document.getElementById('room-number-input').value;
-    // TODO: Fix these, maybe use radio buttons instead of checkboxes? or a dropdown
-    let question = document.getElementById('request-type-question').value;
-    let checkoff = document.getElementById('request-type-checkoff').value;
-    
+    let question = document.getElementById('request-type-question').checked;
+    let checkoff = document.getElementById('request-type-checkoff').checked;
 
-    if (name && roomNumber)
+    if (name && roomNumber && (checkoff || question))
     {
         // TODO: fix reqType
         createPostRequest({name: name, roomNumber: roomNumber, reqType: question ? 'Question' : 'Checkoff', roomID: getRoomID()}, '/' + getRoomID() + '/queue/add', function() {
@@ -77,7 +74,7 @@ function postQueue() {
             clearAndHideQueue();
         }, 'PUT');
     }
-    else alert("Missing name or room number!");
+    else alert("Missing name, room number, or request type!");
 }
 
 
