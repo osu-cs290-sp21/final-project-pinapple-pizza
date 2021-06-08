@@ -5,18 +5,6 @@
     font: Nanum Gothic
 */
 
-
-/* mel 6/6:
-    - match 'create a lab' button to 'join' button on 'join a lab' page
-    - matched 'create a lab' modal styling to announcement&question modal
-    - cleaned up announcement modal and matched it to question modal
-    - standardized post sizes
-    TODO:
-    - move plus buttons to spots that look less weird
-*/
-
-
-/* MAIN */
 body {
   font-family: 'Nanum Gothic', sans-serif;
   margin: 0;
@@ -27,11 +15,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-title{
-  cursor: pointer;
-}
-
-/* HEADER */
 header {
   background-color: #222222;
   color: #fff;
@@ -40,9 +23,9 @@ header {
 .site-title {
   margin: 0;
   padding: 20px;
+  cursor: pointer;
 }
 
-/* NAVBAR */
 a {
   text-decoration: none;
 }
@@ -71,8 +54,6 @@ a {
   text-decoration: none;
 }
 
-
-/* HOME */
 .home-page {
   flex-wrap: wrap;
   padding: 20px;
@@ -131,7 +112,6 @@ a {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   border-radius: 100%;
   border: 0px solid red;
-  /* change this color */
   background-color: #eb4d8a;
   font-size: 10px;
   color: white;
@@ -144,7 +124,6 @@ a {
 }
 
 
-/* QUESTION */
 .post {
   min-width: 300px;
   max-width: 300px;
@@ -172,7 +151,6 @@ a {
 }
 
 
-/* QUESTION & ANNOUNCEMENT MODALS */
 .hidden {
     display: None;
 }
@@ -213,14 +191,10 @@ a {
     position: relative;
     /*text-align: left;*/
     margin: 20px;
-    width: 90%
+    width: 90%;
+    font-style: bold;
 }
 
-/*#question-text-input,
-#announcement-text-input,
-#question-name-input,
-#announcement-author-input,
-#announcement-password-input */
 .input-class {
     width: 100%;
 }
@@ -232,8 +206,8 @@ a {
     margin: 0 auto;
 }
 
-#create-lab-cancel-button,
-#create-lab-create-button {
+
+.pink-button {
     color: white;
     background-color: #eb4d8a;
     margin: 10px;
@@ -249,58 +223,6 @@ a {
     display: flex;
     align-items: left;
 }
-
-#question-cancel,
-#queue-cancel,
-#question-post,
-#queue-post {
-    color: white;
-    background-color: #eb4d8a;
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    justify-content: center;
-    text-align: left;
-    text-decoration: none;
-    font-size: 24px;
-    cursor: pointer;
-    width: 50%;
-    display: flex;
-    align-items: left;
-}
-
-.announcement-modal-cancel-button,
-.announcement-modal-accept-button {
-    color: white;
-    background-color: #eb4d8a;
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 3px;
-    justify-content: center;
-    text-align: left;
-    text-decoration: none;
-    font-size: 24px;
-    cursor: pointer;
-    width: 50%;
-    display: flex;
-    align-items: left;
-}
-
-
-/*#lab-id-label,
-#lab-name-label,
-#lab-password-label*/
-/*.label-class {
-  color: #eb4d8a;
-  position: relative;
-  background-color: white;
-  padding: 0 5px;
-  top: 24px;
-  left: 10px;
-  width:fit-content;
-}*/
 
 .label-class {
   line-height: 6px;
@@ -347,19 +269,6 @@ a {
   position: relative;
   line-height: 44px;
 }
-/*
-#join-lab-input {
-  line-height: 6px;
-  position: absolute;
-  top: 32px;
-  left: 10px;
-  width: 100%;
-  color: #d3d3d3;
-  transition: 0.2s all;
-  cursor: text;
-}*/
-
-
 
 
 /* this is the pin input on the landing page */
@@ -386,90 +295,6 @@ a {
 }
 
 /* On hover, focus, or when there is text in the box, move the label up and turn pink. */
-
-
-/*#lab-id-label:hover,
-#create-lab-pin-input:valid~#lab-id-label,
-#create-lab-pin-input:hover~#lab-id-label,
-#create-lab-pin-input:focus~#lab-id-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
-
-#lab-name-label:hover,
-#create-lab-name-input:valid~#lab-name-label,
-#create-lab-name-input:hover~#lab-name-label,
-#create-lab-name-input:focus~#lab-name-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
-
-#lab-password-label:hover,
-#create-lab-password-input:valid~#lab-password-label,
-#create-lab-password-input:hover~#lab-password-label,
-#create-lab-password-input:focus~#lab-password-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
-
-
-
-#announcement-text-label:hover,
-#announcement-text-input:valid~#announcement-text-label,
-#announcement-text-input:hover~#announcement-text-label,
-#announcement-text-input:focus~#announcement-text-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
-
-#announcement-author-label:hover,
-#announcement-author-input:valid~#announcement-author-label,
-#announcement-author-input:hover~#announcement-author-label,
-#announcement-author-input:focus~#announcement-author-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
-
-#announcement-password-label:hover,
-#announcement-password-input:valid~#announcement-password-label,
-#announcement-password-input:hover~#announcement-password-label,
-#announcement-password-input:focus~#announcement-password-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
-
-#question-text-label:hover,
-#question-text-input:valid~#question-text-label,
-#question-text-input:hover~#question-text-label,
-#question-text-input:focus~#question-text-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}
-
-#question-name-label:hover,
-#question-name-input:valid~#question-name-label,
-#question-name-input:hover~#question-name-label,
-#question-name-input:focus~#question-name-label
-{
-  font-size: 24px;
-  top: 0px;
-  color: #eb4d8a;
-}*/
-
 
 .label-class:hover,
 .input-class:valid~.label-class,
@@ -534,54 +359,7 @@ a {
   display: none;
 }
 
-.action-button {
-  font-size: 20px;
-  color: white;
-  padding: 10px;
-  background-color: #000;
-  border: 1px solid #ababab;
-  border-radius: 5px;
-  font-weight: lighter;
-  cursor: pointer;
-}
 
-.action-button:hover {
-  background-color: #e78477;
-  border-color: #333;
-}
-
-.modal-dialog {
-  width: auto;
-  max-width: 600px;
-  min-width: 350px;
-  min-height: 300px;
-  margin: 40px auto;
-  background-color: #fff;
-  border-radius: 15px;
-}
-
-.modal-header {
-  position: relative;
-  padding: 10px 20px;
-}
-
-.modal-header h3 {
-  margin: 0;
-  font-size: 28px;
-}
-
-#modal-close {
-  position: absolute;
-  right: 10px;
-  top: 5px;
-  font-size: 24px;
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-/*questionModal.handlebars*/
 .modal-body {
     padding: 20px;
     /*margin-left: auto;
@@ -591,27 +369,12 @@ a {
     width: 90%;
 }
 
-
-/*questionModal.handlebars*/
 .modal-footer {
   display: flex;
   justify-content: center;
   padding: 10px 10px 20px 10px;
 }
 
-.announcement-modal-close-button {
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 100%;
-  border: 0px solid red;
-  /* change this color */
-  background-color: #eb4d8a;
-  font-size: 10px;
-  color: white;
-  padding: 10px;
-  float: right;
-}
-
-/* queue.handlebars */
 .queue-page {
   padding: 20px;
 }
