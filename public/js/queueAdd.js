@@ -25,6 +25,8 @@ function hideModals()
 
 function clearAndHideQuestion()
 {
+    // You should also set the values of the inputs to '' or null
+
     hideModals()
 }
 
