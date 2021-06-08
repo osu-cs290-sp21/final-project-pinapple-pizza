@@ -57,7 +57,7 @@ function clearAndHideQueue() {
     document.getElementById('request-type-question').value = false;
     document.getElementById('request-type-checkoff').value = false;
 
-    document.getElementById('create-backdrop').classList.add('hidden');
+    document.getElementById('create-queue-backdrop').classList.add('hidden');
     document.getElementById('create-queue').classList.add('hidden');
 }
 
