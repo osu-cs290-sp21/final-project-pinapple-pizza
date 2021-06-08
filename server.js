@@ -118,17 +118,6 @@ app.post('/question/add', function(req, res, next) {
    }
 })
 
-// Temporary thing for testing
-app.get('/questions', function(req, res, next) {
-   let questionsCursor = db.collection('questions').find({
-      roomName: 'room1'
-   });
-
-   let questions = questionsCursor.toArray().then(function(questions) {
-      res.status(200).send(JSON.stringify(questions));
-   });
-});
-
 // Endpoint to retrieve all data corresponding to a room
 app.get('/:roomID/all-data', function(req, res, next) {
    // Get questions
@@ -254,7 +243,7 @@ app.put('/:roomID/queue/add', function(req, res, next) {
 })
 
 //Update queue by removing 1st person
-app.put('/:roomID/queue/remove', function(req, res, next) {
+app.delete('/:roomID/queue/remove', function(req, res, next) {
    // TODO: Check auth
    if(req.params.roomID)
    {
@@ -262,7 +251,7 @@ app.put('/:roomID/queue/remove', function(req, res, next) {
       db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
          if(result) {
             //Add to DB
-            db.collection("rooms").updateOne({roomID: req.params.roomID}, {$pop: {people: -1}})
+            db.collection("rooms").updateOne({roomID: req.params.roomID}, {$pull: {"people": result.people[req.body.index]}})
             .then(function() {
                res.status(200).send("Successfully removed from the queue!")
             })
@@ -282,7 +271,7 @@ app.get('/:roomID/queue', function(req, res, next) {
          for (let i = 0; i < people.length; i++) {
             people[i].position = i + 1;
          }
-         context = {people: people, roomID: req.params.roomID, roomName: result["roomName"]}
+         context = {people: people, roomID: req.params.roomID, roomName: result["roomName"], roomIdHome: req.params.roomID}
          res.status(200).render('queue', context)
       } else {
          res.status(400).send("Room does not exist!")
@@ -331,6 +320,38 @@ app.get('/:roomID/queue', function(req, res, next) {
    }
    */
 });
+
+app.get('/:roomID/queue/ta', function(req, res, next) {
+   db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
+      if(result) {
+         // Check if auth headers are present
+         if (!req.headers.authorization) {
+            res.setHeader('WWW-Authenticate', 'Basic')
+            res.status(401).send()
+         }
+         else {
+            // Check that password is correct (username doesn't really matter)
+            let auth = new Buffer.from(req.headers.authorization.split(' ')[1], 'base64').toString().split(':');
+            let username = auth[0];
+            let password = auth[1];
+            if (password === result.password) {
+               let people = result["people"];
+               for (let i = 0; i < people.length; i++) {
+                  people[i].position = i + 1;
+               }
+               context = {people: people, roomID: req.params.roomID, roomName: result["roomName"], password: password, roomIdHome: req.params.roomID}
+               res.status(200).render('queue', context)
+            }
+            else {
+               res.setHeader('WWW-Authenticate', 'Basic')
+               res.status(401).send()
+            }
+         }
+      } else {
+         res.status(400).send("Room does not exist!")
+      }
+   })
+})
 
 // 404 page
 app.get('*', function(req, res, next) {

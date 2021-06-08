@@ -3,4 +3,5 @@
     <td class="name-cell">{{name}}</td>
     <td>{{roomNumber}}</td>
     <td>{{reqType}}</td>
+    {{#if password}}<td class="close-button-cell"><button type="button" class="queue-remove-button" onclick="queueRemoveClicked({{position}}, '{{password}}')"><i class="fas fa-times"></i></button></td>{{/if}}
 </tr>

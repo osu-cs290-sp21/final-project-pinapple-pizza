@@ -685,6 +685,22 @@ tr:nth-child(odd) {
   background-color: #f0f0f0;
 }
 
+.close-button-cell {
+  text-align: center;
+}
+
+.queue-remove-button {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 10%;
+  border: 0px solid red;
+  /* change this color */
+  background-color: #eb0000;
+  font-size: 1em;
+  color: white;
+  height: 1.4em;
+  width: 1.4em;
+}
+
 /* 404 Page */
 .main-404-page {
   margin: auto;
