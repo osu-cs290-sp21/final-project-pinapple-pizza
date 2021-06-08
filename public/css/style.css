@@ -289,6 +289,9 @@ a {
 }
 
 
+/*#lab-id-label,
+#lab-name-label,
+#lab-password-label*/
 .label-class {
   color: #eb4d8a;
   position: relative;
@@ -373,7 +376,96 @@ a {
 }
 
 
+#create-lab-pin-input:focus,
+#create-lab-name-input:focus,
+#create-lab-password-input:focus {
+  border-color: #eb4d8a;
+}
+
 /* On hover, focus, or when there is text in the box, move the label up and turn pink. */
+
+
+/*#lab-id-label:hover,
+#create-lab-pin-input:valid~#lab-id-label,
+#create-lab-pin-input:hover~#lab-id-label,
+#create-lab-pin-input:focus~#lab-id-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#lab-name-label:hover,
+#create-lab-name-input:valid~#lab-name-label,
+#create-lab-name-input:hover~#lab-name-label,
+#create-lab-name-input:focus~#lab-name-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#lab-password-label:hover,
+#create-lab-password-input:valid~#lab-password-label,
+#create-lab-password-input:hover~#lab-password-label,
+#create-lab-password-input:focus~#lab-password-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+
+
+#announcement-text-label:hover,
+#announcement-text-input:valid~#announcement-text-label,
+#announcement-text-input:hover~#announcement-text-label,
+#announcement-text-input:focus~#announcement-text-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#announcement-author-label:hover,
+#announcement-author-input:valid~#announcement-author-label,
+#announcement-author-input:hover~#announcement-author-label,
+#announcement-author-input:focus~#announcement-author-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#announcement-password-label:hover,
+#announcement-password-input:valid~#announcement-password-label,
+#announcement-password-input:hover~#announcement-password-label,
+#announcement-password-input:focus~#announcement-password-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#question-text-label:hover,
+#question-text-input:valid~#question-text-label,
+#question-text-input:hover~#question-text-label,
+#question-text-input:focus~#question-text-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}
+
+#question-name-label:hover,
+#question-name-input:valid~#question-name-label,
+#question-name-input:hover~#question-name-label,
+#question-name-input:focus~#question-name-label
+{
+  font-size: 24px;
+  top: 0px;
+  color: #eb4d8a;
+}*/
 
 
 .label-class:hover,
