@@ -286,7 +286,6 @@ a {
     align-items: left;
 }
 
-
 #lab-id-label,
 #lab-name-label,
 #lab-password-label{
@@ -446,6 +445,12 @@ a {
   border-color: #eb4d8a;
 }
 
+#create-lab-pin-input:focus,
+#create-lab-name-input:focus,
+#create-lab-password-input:focus {
+  border-color: #eb4d8a;
+}
+
 /* On hover, focus, or when there is text in the box, move the label up and turn pink. */
 #join-lab-label:hover,
 #join-lab-input:valid~#join-lab-label,
@@ -458,9 +463,9 @@ a {
 }
 
 #lab-id-label:hover,
-#question-text-input:valid~#lab-id-label,
-#question-text-input:hover~#lab-id-label,
-#question-text-input:focus~#lab-id-label
+#create-lab-pin-input:valid~#lab-id-label,
+#create-lab-pin-input:hover~#lab-id-label,
+#create-lab-pin-input:focus~#lab-id-label
 {
   font-size: 24px;
   top: 0px;
@@ -468,9 +473,9 @@ a {
 }
 
 #lab-name-label:hover,
-#question-text-input:valid~#lab-name-label,
-#question-text-input:hover~#lab-name-label,
-#question-text-input:focus~#lab-name-label
+#create-lab-name-input:valid~#lab-name-label,
+#create-lab-name-input:hover~#lab-name-label,
+#create-lab-name-input:focus~#lab-name-label
 {
   font-size: 24px;
   top: 0px;
@@ -478,9 +483,9 @@ a {
 }
 
 #lab-password-label:hover,
-#question-text-input:valid~#lab-password-label,
-#question-text-input:hover~#lab-password-label,
-#question-text-input:focus~#lab-password-label
+#create-lab-password-input:valid~#lab-password-label,
+#create-lab-password-input:hover~#lab-password-label,
+#create-lab-password-input:focus~#lab-password-label
 {
   font-size: 24px;
   top: 0px;
