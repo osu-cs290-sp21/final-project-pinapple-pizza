@@ -195,6 +195,11 @@ app.put('/:roomID/queue/add', function(req, res, next) {
    if(req.body && req.body.name &&
       req.body.roomNumber && req.body.reqType && req.params.roomID)
    {
+
+      if(req.body.reqType != "Checkoff" && req.body.reqType != "Question"){
+         res.status(400).send("Invalid request type!")
+      }
+
       //Make sure room exists first
       db.collection("rooms").findOne({roomID: req.params.roomID})
       .then(function(result){
