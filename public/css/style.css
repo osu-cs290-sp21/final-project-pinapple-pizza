@@ -654,6 +654,9 @@ a {
 }
 
 table {
+  margin: auto;
+  margin-top: 20px;
+  border: 2px solid #ababab;
   border-collapse: collapse;
   width: 100%;
 }
@@ -663,11 +666,10 @@ th:not(.name-cell), td:not(.name-cell) {
   white-space:nowrap;
 }
 
-table, th, td {
-  border: 2px solid #ababab;
-}
-
 th, td {
+  font-size: large;
+  text-align: left;
+  border: 2px solid #ababab;
   padding: 0.5em;
 }
 

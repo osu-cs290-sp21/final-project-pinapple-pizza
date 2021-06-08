@@ -200,6 +200,7 @@ app.put('/:roomID/queue/add', function(req, res, next) {
 
 //Update queue by removing 1st person
 app.put('/:roomID/queue/remove', function(req, res, next) {
+   // TODO: Check auth
    if(req.params.roomID)
    {
       //Make sure room exists first
@@ -222,7 +223,11 @@ app.put('/:roomID/queue/remove', function(req, res, next) {
 app.get('/:roomID/queue', function(req, res, next) {
    db.collection("rooms").findOne({roomID: req.params.roomID}).then(function(result){
       if(result) {
-         context = {people: result["people"], roomID: req.params.roomID, roomName: result["roomName"]}
+         let people = result["people"];
+         for (let i = 0; i < people.length; i++) {
+            people[i].position = i + 1;
+         }
+         context = {people: people, roomID: req.params.roomID, roomName: result["roomName"]}
          res.status(200).render('queue', context)
       } else {
          res.status(400).send("Room does not exist!")
