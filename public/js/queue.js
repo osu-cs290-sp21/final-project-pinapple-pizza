@@ -85,7 +85,7 @@ function postQueue() {
 
 //let cancelQueueButton = document.getElementById('queue-cancel');
 //document.getElementById('queue-cancel').addEventListener('click', clearAndHideQueue);
-=======
+
 let cancelQueueButton = document.getElementById('queue-cancel');
 cancelQueueButton.addEventListener('click', clearAndHideQueue);
 
