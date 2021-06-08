@@ -46,7 +46,7 @@ function queueRemoveClicked(index, password) {
 // Queue modal things
 function unHideQueueModal() {
     //Unhide modal by removing 'hidden' class
-    document.getElementById('create-backdrop').classList.remove('hidden');
+    document.getElementById('create-queue-backdrop').classList.remove('hidden');
     document.getElementById('create-queue').classList.remove('hidden');
 }
 
