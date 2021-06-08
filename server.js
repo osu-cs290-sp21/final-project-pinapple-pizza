@@ -135,18 +135,23 @@ app.post('/announcements/add', function(req, res, next) {
    // First, make sure the password is correct
    db.collection("rooms").findOne({roomID: req.body.roomID})
       .then(function(result) {
-         if (!result) {
-            let roomObj = {roomID: req.body.roomID, roomName: req.body.roomName, password: req.body.roomPassword, people: []}
-            //Add to DB
-            db.collection("rooms").insertOne(roomObj).then(function(){
-               res.status(200).send("Successfully created room!")
-            })
+         if (result) {
+            // Verify password
+            if (result.password === req.body.password) {
+               let announcementObj = {text: req.body.announcementText, name: req.body.announcementAuthor, roomID:req.body.roomID}
+               //Add to DB
+               db.collection("announcements").insertOne(announcementObj)
+               .then(function() {
+                  res.status(200).send("Successfully added announcement!")
+               })
+            }
+            else {
+               res.status(403).send("Invalid password!")
+            }
          } else {
-            res.status(400).send("Error. Room already exists!")
+            res.status(400).send("Error. Room not found!")
          }
       })
-   // TODO: make this actually work
-   res.status(403).send('Invalid password!')
 })
 
 function roomExists(roomID) {
