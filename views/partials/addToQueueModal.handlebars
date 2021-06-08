@@ -2,7 +2,7 @@
     - entirely new page, has not yet been styled in css
     - unknown how it looks or if it will work as needed-->
 
-<div id="create-backdrop" class="hidden"></div>
+<div id="create-queue-backdrop" class="hidden"></div>
 <div id="create-queue" class="hidden">
   <div class="create-post-header">
     <h3>TA Help Request</h3>
@@ -19,22 +19,23 @@
       <label id="room-number-label">Breakout Room Number</label>
     </div>
 
-    <div class="create-queue-input">
+    <p/>
+
+    <div class="create-queue-input selection-thing">
       <div>
-        <input type="checkbox" id="request-type-question" name="request-type-question"/>
+        <input type="radio" id="request-type-question" name="queue-inquiry" value="question"/>
         <label for="request-type-question">Question</label>
-      </div>
-      <div>
-        <input type="checkbox" id="request-type-checkoff" name="request-type-checkoff"/>
+        <input type="radio" id="request-type-checkoff" name="queue-inquiry" value="question"/>
         <label for="request-type-checkoff">Checkoff</label>
       </div>
     </div>
 
   </div>
 
+
   <div class="modal-footer">
-    <button type="button" id="question-cancel">Cancel</button>
-    <button type="button" id="question-post">Add to Queue</button>
+    <button type="button" id="queue-cancel">Cancel</button>
+    <button type="button" id="queue-post">Add to Queue</button>
   </div>
 
 </div>
