@@ -13,8 +13,11 @@
         <h3>Your Lab Name: {{roomName}}</h3>
         <h4>Room ID: {{roomID}} </h4>
     </div>
-    <h2 class="section-label-title">Queue</h2>
-    <button type="button" id="add-queue"><i class="fas fa-plus"></i></button>
+    <div class="queue-title-container">
+        <h2 class="section-label-title">Queue</h2>
+        <button type="button" id="add-queue"><i class="fas fa-plus"></i></button>
+        {{#unless password}}<button type="button" id="ta-signin">TA Sign in</button>{{/unless}}
+    </div>
     <table class="queue-list">
         <tbody>
             <tr class="table-header">
