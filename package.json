@@ -14,8 +14,9 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "build": "handlebars views/partials/question.handlebars -f public/js/questionTemplate.js",
+    "build": "handlebars views/partials/question.handlebars -f public/js/questionTemplate.js && handlebars views/partials/queueEntry.handlebars -f public/js/queueEntryTemplate.js",
     "prestart": "npm run build",
+    "predev": "npm run build",
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

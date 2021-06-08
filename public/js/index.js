@@ -123,19 +123,73 @@ function clearAndHideAnnouncement() {
 }
 
 function postAnnouncement() {
-    // TODO add authorization check
     let textValue = document.getElementById('announcement-text-input').value;
     let authorValue = document.getElementById('announcement-author-input').value;
     let passwordValue = document.getElementById('announcement-password-input').value;
 
     if (textValue && authorValue && passwordValue)
     {
-        // TODO: room name
         createPostRequest({announcementText: textValue, announcementAuthor: authorValue, password: passwordValue, roomID: getRoomID()}, '/announcements/add', function() {
+            update_questions_and_announcements();
             clearAndHideAnnouncement();
         });
     }
     else alert("Missing announcement, author, or password input!");
+}
+
+// Get the data so that we can update things
+function retrieve_data(callback)
+{
+    let request = new XMLHttpRequest();
+    request.open('GET', '/' + getRoomID() + '/all-data');
+
+    request.addEventListener('load', function(event) {
+        if(event.target.status !== 200)
+        {
+            let msg = event.target.response
+            alert("Error retrieving data from database: " + msg);
+        }
+        else
+        {
+            console.log("Retrieved updated data!");
+            //UPDATE UI
+            data = JSON.parse(event.target.response);
+            callback(data);
+        }
+    });
+    request.send();
+}
+
+function update_questions_and_announcements() {
+    retrieve_data(function(data) {
+        // Update announcements
+        let newAnnouncementsHTML = '';
+        for (let i = 0; i < data.announcements.length; i++) {
+            newAnnouncementsHTML += Handlebars.templates.question(data.announcements[i]);
+        }
+
+        // Update questions
+        let newQuestionsHTML = '';
+        for (let i = 0; i < data.questions.length; i++) {
+            newQuestionsHTML += Handlebars.templates.question(data.questions[i]);
+        }
+
+        // Remove old questions and announcements
+        for (node of document.querySelectorAll('.announcements .post-container *')) {
+            node.remove();
+        }
+
+        for (node of document.querySelectorAll('.questions .post-container *')) {
+            node.remove();
+        }
+
+        // Add announcements and questions to DOM
+        announcementsContainer = document.querySelector('.announcements .post-container');
+        announcementsContainer.insertAdjacentHTML('beforeend', newAnnouncementsHTML);
+        // Update questions
+        questionsContainer = document.querySelector('.questions .post-container');
+        questionsContainer.insertAdjacentHTML('beforeend', newQuestionsHTML);
+    });
 }
 
 let createAnnouncementButton = document.getElementById('add-announcement');
@@ -150,3 +204,9 @@ cancelAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);
 
 let postAnnouncementButton = document.querySelector('.announcement-modal-accept-button');
 postAnnouncementButton.addEventListener('click', postAnnouncement);
+
+// Set update interval for data
+// Check which page this is
+if (window.location.pathname.split('/').length === 2) {
+    setInterval(update_questions_and_announcements, 30000)
+}

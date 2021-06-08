@@ -16,19 +16,14 @@
     <h2 class="section-label-title">Queue</h2>
     <button type="button" id="add-queue"><i class="fas fa-plus"></i></button>
     <table class="queue-list">
-        <tr>
+        <tr class="table-header">
             <th>Position in Queue</th>
             <th class="name-cell">Name</th>
             <th>Breakout Room Number</th>
             <th>Request Type</th>
         </tr>
         {{#each people}}
-            <tr>
-                <td>{{position}}</td>
-                <td class="name-cell">{{name}}</td>
-                <td>{{roomNumber}}</td>
-                <td>{{reqType}}</td>
-            </tr>
+            {{> queueEntry}}
         {{/each}}
     </table>
 
