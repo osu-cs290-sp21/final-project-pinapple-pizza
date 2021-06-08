@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+title{
+  cursor: pointer;
+}
+
 /* HEADER */
 header {
   background-color: #222222;
@@ -90,13 +94,13 @@ a {
   text-align: left;
 }
 
-/*.title-container-landing {
+.title-container-landing {
   margin: 0px;
   margin-left: 20px;
   padding: 5px;
   background-color: white;
   text-align: left;
-}*/
+}
 
 .title-container h3{
   margin: 10px 0;

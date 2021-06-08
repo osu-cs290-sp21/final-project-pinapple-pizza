@@ -139,4 +139,4 @@ cancelAnnouncementButton.addEventListener('click', clearAndHideAnnouncement);
 let postAnnouncementButton = document.querySelector('.announcement-modal-accept-button');
 postAnnouncementButton.addEventListener('click', postAnnouncement);
 
-setInterval(updateQuestionsAndAnnouncements, 30000);
+setInterval(updateQuestionsAndAnnouncements, UPDATE_INTERVAL);

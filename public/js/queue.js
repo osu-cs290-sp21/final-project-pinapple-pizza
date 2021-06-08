@@ -53,6 +53,7 @@ function unHideQueueModal() {
 function clearAndHideQueue() {
     document.getElementById('queue-name-input').value = '';
     document.getElementById('room-number-input').value = '';
+    // TODO: Fix these, maybe use radio buttons instead of checkboxes? or a dropdown
     document.getElementById('request-type-question').value = false;
     document.getElementById('request-type-checkoff').value = false;
 
@@ -63,24 +64,31 @@ function clearAndHideQueue() {
 function postQueue() {
     let name = document.getElementById('queue-name-input').value;
     let roomNumber = document.getElementById('room-number-input').value;
+    // TODO: Fix these, maybe use radio buttons instead of checkboxes? or a dropdown
     let question = document.getElementById('request-type-question').value;
     let checkoff = document.getElementById('request-type-checkoff').value;
 
 
     if (name && roomNumber)
     {
+        // TODO: fix reqType
         createPostRequest({name: name, roomNumber: roomNumber, reqType: question ? 'Question' : 'Checkoff', roomID: getRoomID()}, '/' + getRoomID() + '/queue/add', function() {
             updateQueue();
             clearAndHideQueue();
         }, 'PUT');
     }
-    else alert("Missing name, or room number!");
+    else alert("Missing name or room number!");
 }
 
 
 
+
 //let cancelQueueButton = document.getElementById('queue-cancel');
-document.getElementById('queue-cancel').addEventListener('click', clearAndHideQueue);
+//document.getElementById('queue-cancel').addEventListener('click', clearAndHideQueue);
+=======
+let cancelQueueButton = document.getElementById('queue-cancel');
+cancelQueueButton.addEventListener('click', clearAndHideQueue);
+
 
 let postQueueButton = document.getElementById('queue-post');
 postQueueButton.addEventListener('click', postQueue);
@@ -89,4 +97,8 @@ let addToQueueButton = document.getElementById('add-queue');
 addToQueueButton.addEventListener('click', unHideQueueModal);
 
 
-setInterval(updateQueue, 30000);
+
+//setInterval(updateQueue, 30000);
+=======
+setInterval(updateQueue, UPDATE_INTERVAL);
+
