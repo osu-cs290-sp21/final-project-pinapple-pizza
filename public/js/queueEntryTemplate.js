@@ -21,16 +21,16 @@ templates['queueEntry'] = template({"1":function(container,depth0,helpers,partia
         return undefined
     };
 
-  return "<tr>\n    <td>"
+  return "<tr>\r\n    <td>"
     + alias4(((helper = (helper = lookupProperty(helpers,"position") || (depth0 != null ? lookupProperty(depth0,"position") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"position","hash":{},"data":data,"loc":{"start":{"line":2,"column":8},"end":{"line":2,"column":20}}}) : helper)))
-    + "</td>\n    <td class=\"name-cell\">"
+    + "</td>\r\n    <td class=\"name-cell\">"
     + alias4(((helper = (helper = lookupProperty(helpers,"name") || (depth0 != null ? lookupProperty(depth0,"name") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data,"loc":{"start":{"line":3,"column":26},"end":{"line":3,"column":34}}}) : helper)))
-    + "</td>\n    <td>"
+    + "</td>\r\n    <td>"
     + alias4(((helper = (helper = lookupProperty(helpers,"roomNumber") || (depth0 != null ? lookupProperty(depth0,"roomNumber") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"roomNumber","hash":{},"data":data,"loc":{"start":{"line":4,"column":8},"end":{"line":4,"column":22}}}) : helper)))
-    + "</td>\n    <td>"
+    + "</td>\r\n    <td>"
     + alias4(((helper = (helper = lookupProperty(helpers,"reqType") || (depth0 != null ? lookupProperty(depth0,"reqType") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"reqType","hash":{},"data":data,"loc":{"start":{"line":5,"column":8},"end":{"line":5,"column":19}}}) : helper)))
-    + "</td>\n    "
+    + "</td>\r\n    "
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,(depth0 != null ? lookupProperty(depth0,"password") : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":6,"column":4},"end":{"line":6,"column":208}}})) != null ? stack1 : "")
-    + "\n</tr>";
+    + "\r\n</tr>";
 },"useData":true});
 })();
