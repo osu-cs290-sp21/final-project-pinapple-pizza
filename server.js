@@ -324,7 +324,7 @@ app.get('/:roomID/queue/ta', function(req, res, next) {
          // Check if auth headers are present
          if (!req.headers.authorization) {
             res.setHeader('WWW-Authenticate', 'Basic')
-            res.status(401).send()
+            res.status(401).render('redirectToQueue', {roomID: req.params.roomID})
          }
          else {
             // Check that password is correct (username doesn't really matter)
@@ -341,7 +341,7 @@ app.get('/:roomID/queue/ta', function(req, res, next) {
             }
             else {
                res.setHeader('WWW-Authenticate', 'Basic')
-               res.status(401).send()
+               res.status(401).render('redirectToQueue', {roomID: req.params.roomID})
             }
          }
       } else {

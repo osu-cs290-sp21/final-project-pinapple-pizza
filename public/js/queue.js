@@ -97,7 +97,7 @@ addToQueueButton.addEventListener('click', unHideQueueModal);
 
 let taSignInButton = document.getElementById('ta-signin');
 if (taSignInButton) {
-    taSignInButton.addEventListener('click', function() {location.href = 'queue/ta';});
+    taSignInButton.addEventListener('click', function() {location.href = '/' + getRoomID() + '/queue/ta';});
 }
 
 let addToQueueBack = document.getElementById('create-queue-backdrop');
