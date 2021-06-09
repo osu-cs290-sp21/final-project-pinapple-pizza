@@ -501,6 +501,7 @@ tr:nth-child(odd) {
   color: white;
   height: 1.4em;
   width: 1.4em;
+  cursor: pointer;
 }
 
 .queue-remove-button:hover{
