@@ -336,6 +336,7 @@ a {
   cursor: pointer;
 }
 
+
 #request-type-question:hover~#question-request-type-label{
   color: #eb4d8a;
 }
@@ -502,6 +503,10 @@ tr:nth-child(odd) {
   width: 1.4em;
 }
 
+.queue-remove-button:hover{
+  background-color: #eb8080;
+}
+
 /* 404 Page */
 .main-404-page {
   margin: auto;
@@ -517,3 +522,27 @@ tr:nth-child(odd) {
   margin: auto;
   text-align: center;
 }
+
+
+/* These should be all moved to pink button. We should only define the colors in the pink button */
+#ta-signin:hover,
+#join-lab-button:hover,
+#create-lab-open-button:hover,
+#create-lab-cancel-button:hover,
+#create-lab-create-button:hover,
+#add-question:hover,
+#add-queue:hover,
+#add-announcement:hover,
+.pink-button:hover{
+  background-color: rgb(207, 41, 124);
+}
+
+
+
+#add-question,
+#add-queue,
+#add-announcement{
+  margin-left: 10px;
+}
+
+
