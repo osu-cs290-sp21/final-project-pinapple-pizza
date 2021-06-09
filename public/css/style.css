@@ -333,9 +333,6 @@ a {
 
 /* On hover, focus, or when there is text in the box, move the label up and turn pink. */
 
-.label-class:hover,
-.input-class:valid~.label-class,
-.input-class:hover~.label-class,
 .input-class:focus~.label-class
 {
   font-size: 24px;
